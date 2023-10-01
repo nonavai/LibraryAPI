@@ -1,0 +1,17 @@
+C:\rider\c#projects\LibraryAPI\DataLayer\bin\Debug\net7.0\DataLayer.deps.json
+C:\rider\c#projects\LibraryAPI\DataLayer\bin\Debug\net7.0\DataLayer.runtimeconfig.json
+C:\rider\c#projects\LibraryAPI\DataLayer\bin\Debug\net7.0\DataLayer.dll
+C:\rider\c#projects\LibraryAPI\DataLayer\bin\Debug\net7.0\DataLayer.pdb
+C:\rider\c#projects\LibraryAPI\DataLayer\bin\Debug\net7.0\Shared.dll
+C:\rider\c#projects\LibraryAPI\DataLayer\bin\Debug\net7.0\Shared.pdb
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.csproj.AssemblyReference.cache
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.AssemblyInfoInputs.cache
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.AssemblyInfo.cs
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.csproj.CoreCompileInputs.cache
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.csproj.CopyComplete
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.dll
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\refint\DataLayer.dll
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.pdb
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\DataLayer.genruntimeconfig.cache
+C:\rider\c#projects\LibraryAPI\DataLayer\obj\Debug\net7.0\ref\DataLayer.dll
