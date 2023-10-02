@@ -54,10 +54,10 @@ public class TokenService : ITokenService
             ExpiresAt = token.ValidTo
         };
         //delete old if already exist
-        var bbb = await GetByUserIdAsync(user.Id);
-        if (bbb != null && await _refreshTokenRepository.ExistsAsync(bbb.Id))
+        var oldToken = await GetByUserIdAsync(user.Id);
+        if (oldToken != null && await _refreshTokenRepository.ExistsAsync(oldToken.Id))
         {
-            await _refreshTokenRepository.DeleteAsync(bbb.Id);
+            await _refreshTokenRepository.DeleteAsync(oldToken.Id);
         }
 
         //creating

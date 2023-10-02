@@ -1,4 +1,5 @@
-﻿using Shared.Enums;
+﻿using DataAccess.Entities;
+using Shared.Enums;
 
 namespace DataLayer.Entities;
 
@@ -12,4 +13,5 @@ public class User : BaseEntity
     public string? Description { get; set; }
     public Role Role { get; set; }
     public virtual IEnumerable<BookLoan> BookLoans {get; set; }
+    public virtual RefreshToken RefreshToken { get; set; }
 }

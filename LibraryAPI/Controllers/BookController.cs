@@ -33,6 +33,15 @@ public class BookController : ControllerBase
     }
     
     [HttpGet]
+    [Route("All")]
+    public async Task<IActionResult> GetAll()
+    {
+        var dto = await _bookService.GetAllAsync();
+        var response = _mapper.Map<IEnumerable<BookResponse>>(dto);
+        return Ok(response);
+    }
+    
+    [HttpGet]
     [Route("{id:int}/Loan")]
     public async Task<IActionResult> GetCurrentLoan([FromRoute] int id)
     {

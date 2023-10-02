@@ -33,7 +33,16 @@ public class GenreController : ControllerBase
     public async Task<IActionResult> Get([FromRoute] int id)
     {
         var dto = await _genreService.GetByIdAsync(id);
-        var response = _mapper.Map<GenreResponse>(dto);
+        var response = _mapper.Map<GenreBooksResponse>(dto);
+        return Ok(response);
+    }
+    
+    [HttpGet]
+    [Route("All")]
+    public async Task<IActionResult> GetAll()
+    {
+        var dto = await _genreService.GetAllAsync();
+        var response = _mapper.Map<IEnumerable<GenreResponse>>(dto);
         return Ok(response);
     }
     

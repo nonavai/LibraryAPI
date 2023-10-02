@@ -26,6 +26,7 @@ public class UserController : ControllerBase
         _tokenService = tokenService;
     }
 
+    [Authorize]
     [HttpGet]
     [Route("{id:int}")]
     public async Task<IActionResult> Get([FromRoute] int id)
@@ -36,7 +37,7 @@ public class UserController : ControllerBase
     }
     
     [HttpGet]
-    [Route("{id:int}/all")]
+    [Route("{id:int}/full")]
     public async Task<IActionResult> GetUserLoan([FromRoute] int id)
     {
         var dto = await _userService.GetWithLoans(id);

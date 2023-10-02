@@ -5,6 +5,7 @@ using BusinessLogic.Models.BookLoan;
 using BusinessLogic.Models.Genre;
 using BusinessLogic.Models.RefreshToken;
 using BusinessLogic.Models.User;
+using BusinessLogic.Services.Implemetations;
 using DataAccess.Entities;
 using DataLayer.Entities;
 
@@ -14,27 +15,18 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Book, BookDto>()
-            .ForMember(
-                dest => dest.Author,
-                opt => opt.
-                    MapFrom(src => src.Authors)).ReverseMap();
+        /*CreateMap<Author, AuthorDto>();
+        CreateMap<Genre, GenreDto>();*/
         CreateMap<Book, BookDto>()
             .ForMember(
                 dest => dest.Genres,
                 opt => opt.
-                    MapFrom(src => src.Genres)).ReverseMap();
-        /*CreateMap<BookLoan, BookLoanDto>()
+                    MapFrom(src => src.Genres))
             .ForMember(
-                dest => dest.Book,
+                dest => dest.Authors,
                 opt => opt.
-                    MapFrom(src => src.Book)).ReverseMap();*/
-        /*CreateMap<Book, BookDto>()
-            .ForMember(
-                dest=> dest.BookLoans,
-                opt=> opt
-                    .MapFrom(src=> src.BookLoans)).ReverseMap();*/
-        CreateMap<UserLoanDto, User>().ReverseMap();
+                    MapFrom(src => src.Authors))
+            .ReverseMap();
         CreateMap<UserDto, User>().ReverseMap();
         CreateMap<User, UserLoanDto>()
             .ForMember(
@@ -51,11 +43,19 @@ public class MappingProfile : Profile
                 dest => dest.Books,
                 opt => opt.
                     MapFrom(src => src.Books)).ReverseMap();
-        
+        CreateMap<BookLoan, BookLoanDto>().ReverseMap();
         CreateMap<RefreshToken, RefreshTokenDto>().ReverseMap();
         
 
-        CreateMap<IEnumerable<User>, IEnumerable<UserDto>>();
+        
+        
+        CreateMap<IEnumerable<User>, IEnumerable<UserDto>>().ReverseMap();
+        CreateMap<IQueryable<BookLoan>, IQueryable<BookLoanDto>>().ReverseMap();
+        CreateMap<IEnumerable<Author>, IEnumerable<AuthorDto>>().ReverseMap();
+        CreateMap<IEnumerable<BookLoan>, IEnumerable<BookLoanDto>>().ReverseMap();
+        CreateMap<IEnumerable<Genre>, IEnumerable<GenreDto>>().ReverseMap();
+        CreateMap<IQueryable<Genre>, IQueryable<GenreDto>>().ReverseMap();
+
 
 
 

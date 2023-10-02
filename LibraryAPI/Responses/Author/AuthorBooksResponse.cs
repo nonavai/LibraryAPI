@@ -1,13 +1,13 @@
-﻿using BusinessLogic.Models.Book;
+using LibraryAPI.Responses.Book;
 
-namespace BusinessLogic.Models.Author;
+namespace LibraryAPI.Responses.Author;
 
-public class AuthorDto
+public record AuthorBooksResponse
 {
     public int Id { get; set; }
     public string Name { get; set; }
     public DateTime? Birth { get; set; }
     public DateTime? Death { get; set; }
     public string? Description { get; set; }
-    public IEnumerable<BookClearDto> Books { get; set; }
+    public IEnumerable<BookClearResponse> Books { get; set; }
 }

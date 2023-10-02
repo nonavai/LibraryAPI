@@ -39,15 +39,12 @@ public abstract class GenericRepository<T> : IBaseRepository<T> where T: BaseEnt
 
     public async Task<T?> DeleteAsync(int id)
     {
-        var entity = await GetByIdAsync(id);
-        if (entity != null)
-        {
-            db.Set<T>().Remove(entity);
-            await db.SaveChangesAsync();
-            return entity;
-        }
+        var entity = await db.Set<T>().FirstOrDefaultAsync(p => p.Id == id);
+        if (entity == null) return null;
+        db.Set<T>().Remove(entity);
+        await db.SaveChangesAsync();
+        return entity;
 
-        return null;
     }
 
     public async Task<bool> ExistsAsync(int id)

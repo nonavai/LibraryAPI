@@ -45,6 +45,9 @@ namespace DataLayer.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
                     b.ToTable("RefreshTokens");
                 });
 
@@ -221,6 +224,17 @@ namespace DataLayer.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("DataAccess.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("DataLayer.Entities.User", "User")
+                        .WithOne("RefreshToken")
+                        .HasForeignKey("DataAccess.Entities.RefreshToken", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DataLayer.Entities.BookAuthors", b =>
                 {
                     b.HasOne("DataLayer.Entities.Author", "Author")
@@ -286,6 +300,9 @@ namespace DataLayer.Migrations
             modelBuilder.Entity("DataLayer.Entities.User", b =>
                 {
                     b.Navigation("BookLoans");
+
+                    b.Navigation("RefreshToken")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

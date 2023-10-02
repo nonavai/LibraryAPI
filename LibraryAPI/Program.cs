@@ -15,13 +15,14 @@ using FluentValidation;
 using LibraryAPI.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using FluentValidation.AspNetCore;
+using LibraryAPI.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
-builder.Services.AddAuthentication(x =>
+/*builder.Services.AddAuthentication(x =>
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(x=> x.TokenValidationParameters = new TokenValidationParameters
     {
@@ -32,7 +33,14 @@ builder.Services.AddAuthentication(x =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true
-    });
+    })
+    .AddCookie(options => options.Cookie.Name = "Authorization");*/
+builder.Services.AddAuthentication(options => { 
+    options.DefaultScheme = "Cookies"; 
+}).AddCookie("Cookies", options => {
+    options.Cookie.Name = "auth_cookie";
+    options.Cookie.SameSite = SameSiteMode.None;
+});
 
 
 
@@ -99,7 +107,7 @@ void ConfigureServices(IServiceCollection serviceCollection)
     serviceCollection.AddScoped<ITokenService, TokenService>();
     
     serviceCollection.AddAutoMapper(typeof(MappingProfile));
-    //serviceCollection.AddAutoMapper(typeof(MappingProfileApi));
+    serviceCollection.AddAutoMapper(typeof(MappingProfileApi));
     
     serviceCollection.AddScoped<IValidator<UserDto>, UserValidator>();
     serviceCollection.AddScoped<IValidator<BookDto>, BookValidator>();

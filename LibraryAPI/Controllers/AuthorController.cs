@@ -31,7 +31,16 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> Get([FromRoute] int id)
     {
         var dto = await _authorService.GetByIdAsync(id);
-        var response = _mapper.Map<AuthorResponse>(dto);
+        var response = _mapper.Map<AuthorBooksResponse>(dto);
+        return Ok(response);
+    }
+    
+    [HttpGet]
+    [Route("All")]
+    public async Task<IActionResult> GetAll()
+    {
+        var dto = await _authorService.GetAllAsync();
+        var response = _mapper.Map<IEnumerable<AuthorResponse>>(dto);
         return Ok(response);
     }
 
