@@ -94,4 +94,15 @@ public class BookController : ControllerBase
         var response = _mapper.Map<BookResponse>(responseDto);
         return Ok(response);
     }
+    
+    [Authorize]
+    [HttpPost]
+    [Route("{id:int}")]
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AddBookRelations request)
+    {
+        var dto = _mapper.Map<RelationsDto>(request);
+        var responseDto = await _bookService.AddRelations(dto);
+        var response = _mapper.Map<BookResponse>(responseDto);
+        return Ok(response);
+    }
 }

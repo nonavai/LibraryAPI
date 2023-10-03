@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.Models.Book;
 using BusinessLogic.Models.BookLoan;
-using BusinessLogic.Validators;
 using DataLayer.Entities;
 using DataLayer.Repositories;
 using FluentValidation;
@@ -13,15 +12,19 @@ namespace BusinessLogic.Services.Implemetations;
 public class BookService :  IBookService
 {
     private readonly IBookRepository _bookRepository;
+    private readonly IBookGenreRepository _bookGenreRepository;
+    private readonly IBookAuthorRepository _bookAuthorRepository;
     private readonly IMapper _mapper;
     private readonly IValidator<BookDto> _validator;
     
 
-    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookDto> validator)
+    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookDto> validator, IBookGenreRepository bookGenreRepository, IBookAuthorRepository bookAuthorRepository)
     {
         _bookRepository = bookRepository;
         _mapper = mapper;
         _validator = validator;
+        _bookGenreRepository = bookGenreRepository;
+        _bookAuthorRepository = bookAuthorRepository;
     }
 
 
@@ -117,5 +120,29 @@ public class BookService :  IBookService
         }
         var dto = _mapper.Map<BookLoanDto>(existingEntity);
         return dto;
+    }
+
+    public async Task<BookDto> AddRelations(RelationsDto dto)
+    {
+        foreach (var id in dto.Genres)
+        {
+            await _bookGenreRepository.AddAsync(new BookGenres
+            {
+                BookId = dto.Id,
+                GenreId = id
+            });
+        }
+        
+        foreach (var id in dto.Authors)
+        {
+            await _bookAuthorRepository.AddAsync(new BookAuthors
+            {
+                BookId = dto.Id,
+                AuthorId = id
+            });
+        }
+
+        var bookDto = _mapper.Map<BookDto>(await _bookRepository.GetByIdAsync(dto.Id));
+        return bookDto;
     }
 }

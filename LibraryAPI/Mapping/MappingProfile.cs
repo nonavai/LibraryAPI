@@ -5,6 +5,7 @@ using BusinessLogic.Models.BookLoan;
 using BusinessLogic.Models.Genre;
 using BusinessLogic.Models.User;
 using LibraryAPI.Requests.Author;
+using LibraryAPI.Requests.Book;
 using LibraryAPI.Requests.BookLoan;
 using LibraryAPI.Requests.Genre;
 using LibraryAPI.Requests.User;
@@ -26,45 +27,64 @@ public class MappingProfileApi : Profile
         CreateMap<AuthorRequest, AuthorDto>();
         CreateMap<GenreRequest, GenreDto>();
         CreateMap<BookLoanRequest, BookLoanDto>();
-        
-        
-        
+        CreateMap<AddBookRelations, RelationsDto>();
+
+
+
         CreateMap<UserDto, LogInResponse>();
         CreateMap<UserDto, UserResponse>();
+        CreateMap<BookLoanDto, BookLoanResponse>();
         CreateMap<UserLoanDto, UserLoanResponse>()
-            .ForMember(
-            dest=> dest.BookLoans,
-            opt=> opt
-                .MapFrom(src=> src.BookLoans)).ReverseMap();;
+            .ForMember(dest => dest.BookLoans, opt => opt.MapFrom(src => src.BookLoans.Select(c => new BookLoanResponse()
+            {
+                UserId = c.UserId,
+                BookId = c.BookId,
+                LoanDate = c.LoanDate,
+                ReturnDate = c.ReturnDate
+            })));
         CreateMap<AuthorDto, AuthorBooksResponse>()
-            .ForMember(
-                dest => dest.Books,
-                opt => opt.
-                    MapFrom(src => src.Books));
+            .ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(c => new BookClearResponse
+            {
+                Id = c.Id,
+                Title = c.Title,
+                ISBN13 = c.ISBN13,
+                Name = c.Name,
+                Description = c.Description,
+                IsAvailable = c.IsAvailable
+            })));
         CreateMap<AuthorDto, AuthorResponse>();
         CreateMap<GenreDto, GenreBooksResponse>()
-            .ForMember(
-                dest => dest.Books,
-                opt => opt.
-                    MapFrom(src => src.Books));
+            .ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(c => new BookClearResponse
+            {
+                Id = c.Id,
+                Title = c.Title,
+                ISBN13 = c.ISBN13,
+                Name = c.Name,
+                Description = c.Description,
+                IsAvailable = c.IsAvailable
+            })));
         CreateMap<GenreDto, GenreResponse>();
-        CreateMap<BookLoanDto, BookLoanResponse>();
         CreateMap<BookDto, BookResponse>()
-            .ForMember(
-                dest => dest.Genres,
-                opt => opt.
-                    MapFrom(src => src.Genres))
-            .ForMember(
-                dest => dest.Authors,
-                opt => opt.
-                    MapFrom(src => src.Authors))
-            .ReverseMap();;
+            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(c => new GenreDto
+            {
+                Id = c.Id,
+                Name = c.Name
+            })))
+            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors.Select(c => new AuthorDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Birth = c.Birth,
+                Death = c.Death,
+                Description = c.Description
+            })));
         CreateMap<BookClearDto, BookClearResponse>();
 
         CreateMap<IEnumerable<UserDto>, IEnumerable<UserResponse>>();
         CreateMap<IEnumerable<AuthorDto>, IEnumerable<AuthorResponse>>();
         CreateMap<IEnumerable<BookDto>, IEnumerable<BookResponse>>();
         CreateMap<IEnumerable<GenreDto>, IEnumerable<GenreResponse>>();
+        CreateMap<IEnumerable<BookLoanDto>, IEnumerable<BookLoanResponse>>();
         CreateMap<IQueryable<BookDto>, IQueryable<BookResponse>>();
         CreateMap<IQueryable<BookLoanDto>, IQueryable<BookLoanResponse>>();
 

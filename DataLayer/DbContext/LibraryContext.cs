@@ -15,6 +15,9 @@ public class LibraryContext : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<Author> Authors { get; set; }
     public DbSet<BookLoan?> BookLoans { get; set; }
     public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<BookGenres> BookGenres { get; set; }
+    public DbSet<BookAuthors> BookAuthors { get; set; }
+    
 
     private string DbPath;
 

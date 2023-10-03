@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using AutoMapper;
+﻿using AutoMapper;
 using BusinessLogic.Models.RefreshToken;
 using BusinessLogic.Models.User;
 using BusinessLogic.Services;
@@ -8,6 +7,7 @@ using LibraryAPI.Responses.BookLoan;
 using LibraryAPI.Responses.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Roles;
 
 namespace LibraryAPI.Controllers;
 
@@ -26,7 +26,7 @@ public class UserController : ControllerBase
         _tokenService = tokenService;
     }
 
-    [Authorize]
+    [Authorize(Roles = Roles.Admin)]
     [HttpGet]
     [Route("{id:int}")]
     public async Task<IActionResult> Get([FromRoute] int id)
@@ -36,6 +36,7 @@ public class UserController : ControllerBase
         return Ok(response);
     }
     
+    [Authorize(Roles = Roles.Admin)]
     [HttpGet]
     [Route("{id:int}/full")]
     public async Task<IActionResult> GetUserLoan([FromRoute] int id)
@@ -50,7 +51,7 @@ public class UserController : ControllerBase
     public async Task<IActionResult> GetLoanByUser([FromRoute] int id)
     {
         var dto = await _userService.GetLoansByUser(id);
-        var response = _mapper.Map<IQueryable<BookLoanResponse>>(dto);
+        var response = dto.Select(entity=> _mapper.Map<BookLoanResponse>(entity));
         return Ok(response);
     }
     
@@ -68,10 +69,8 @@ public class UserController : ControllerBase
         var response = _mapper.Map<LogInResponse>(dto);
         var newRefreshToken = await _tokenService.GenerateRefreshToken(dto);
         var accessToken = await _tokenService.GenerateAccessToken(newRefreshToken);
-        /*response.RefreshToken = newRefreshToken.Token;
-        response.accessToken = accessToken;*/
-        Response.Cookies.Append("Authorization", accessToken);
-        Response.Cookies.Append("AuthorizationRefresh", newRefreshToken.Token);
+        Response.Cookies.Append("Authorization", accessToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
+        Response.Cookies.Append("AuthorizationRefresh", newRefreshToken.Token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
         return Ok(response);
     }
 
@@ -91,12 +90,6 @@ public class UserController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] UserRequest entity)
     {
-        
-        if (!await _userService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var dto = _mapper.Map<UserDto>(entity);
         dto.Id = id;
         var newUserDto = await _userService.UpdateAsync(dto);
@@ -110,11 +103,6 @@ public class UserController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute]int id)
     {
-        if (!await _userService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var responseDto = await _userService.DeleteAsync(id);
         var response = _mapper.Map<UserDto>(responseDto);
         return Ok(response);
@@ -138,8 +126,10 @@ public class UserController : ControllerBase
                 Token = refreshToken
             };
         var newAccessToken = await _tokenService.GenerateAccessToken(token);
-        Response.Cookies.Delete("Authorization");
-        Response.Cookies.Append("Authorization", newAccessToken);
+        Response.Cookies.Delete("Authorization", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
+        Response.Cookies.Delete("AuthorizationRefresh", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true }); //TODO: !!!
+        Response.Cookies.Append("Authorization", newAccessToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
+
         return Ok(newAccessToken);
     }
 }

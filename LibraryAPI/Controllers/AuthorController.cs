@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using BusinessLogic.Models.Author;
-using BusinessLogic.Models.Genre;
 using BusinessLogic.Services;
 using LibraryAPI.Requests.Author;
-using LibraryAPI.Requests.Genre;
 using LibraryAPI.Responses.Author;
 using LibraryAPI.Responses.Book;
-using LibraryAPI.Responses.Genre;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

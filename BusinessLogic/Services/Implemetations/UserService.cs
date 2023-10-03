@@ -135,7 +135,8 @@ public class UserService : IUserService
 
     public async Task<IQueryable<BookLoanDto>> GetLoansByUser(int id)
     {
-        var dto = _mapper.Map<IQueryable<BookLoanDto>>( await _userRepository.GetLoansByUser(id));
+        var entities = await _userRepository.GetLoansByUser(id);
+        var dto = entities.Select(entity=> _mapper.Map<BookLoanDto>(entity));
         return dto;
     }
 }

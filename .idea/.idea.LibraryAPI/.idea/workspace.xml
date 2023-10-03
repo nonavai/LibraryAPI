@@ -10,29 +10,29 @@
     <list default="true" id="dbe0e4b9-494b-485b-ad7e-097a41d00318" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryAPI/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Mapping/MappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Models/Author/AuthorDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Models/Author/AuthorDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Models/Book/BookDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Models/Book/BookDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Models/Genre/GenreDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Models/Genre/GenreDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IBookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IBookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/Shared.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/DbContext/Configurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/DbContext/Configurations/UserConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/Entities/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/Entities/RefreshToken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/Entities/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/Migrations/20231001193148_LibraryDB.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/Migrations/20231001193148_LibraryDB.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/Migrations/LibraryContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/Migrations/LibraryContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/Repositories/Implementations/GenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/Repositories/Implementations/GenericRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/DbContext/LibraryContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/DbContext/LibraryContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/Migrations/20231002091539_LibraryDB.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/Migrations/20231002091539_LibraryDB.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/Shared.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.pdb" afterDir="false" />
@@ -40,22 +40,38 @@
       <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/refint/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/refint/DataLayer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/AuthorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/AuthorController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/BookController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/BookController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/GenreController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/GenreController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Mapping/MappingProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/User/LogInResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Responses/User/LogInResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/User/UserLoanResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Responses/User/UserLoanResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/User/UserResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Responses/User/UserResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/Shared.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/ref/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/ref/LibraryAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/refint/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/refint/LibraryAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Enums/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Enums/Role.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/net7.0/Shared.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/net7.0/Shared.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/net7.0/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/net7.0/Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/net7.0/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/net7.0/Shared.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/Shared.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/ref/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/ref/Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/refint/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/net7.0/refint/Shared.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +80,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/06e6b5e410594922af54f5731fb38a29b1c8b0/_f2557/ICollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/76df614b0a556e04f1987875dde2a50ae51e754d03b98c83c52020cb8b2/AuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/829d6ac6e62b9bee9ef8e79e827d87d0c31a7c2eefbc354135d9a8f2c4deb/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -156,7 +175,8 @@
       <option name="presentableId" value="Default" />
       <updated>1695714921201</updated>
       <workItem from="1695714967827" duration="73702000" />
-      <workItem from="1696225650397" duration="13295000" />
+      <workItem from="1696225650397" duration="38387000" />
+      <workItem from="1696324374166" duration="1153000" />
     </task>
     <servers />
   </component>
@@ -183,17 +203,121 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataLayer/Repositories/Implementations/GenericRepository.cs</url>
-          <line>42</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\DataLayer\Repositories\Implementations\GenericRepository.cs" initialLine="42" containingFunctionPresentation="method 'DeleteAsync'">
+          <url>file://$PROJECT_DIR$/LibraryAPI/Controllers/UserController.cs</url>
+          <line>33</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\LibraryAPI\Controllers\UserController.cs" initialLine="33" containingFunctionPresentation="method 'Get'">
             <startOffsets>
-              <option value="1104" />
+              <option value="937" />
             </startOffsets>
             <endOffsets>
-              <option value="1123" />
+              <option value="983" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/LibraryAPI/Middleware/ExceptionMiddleware.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\LibraryAPI\Middleware\ExceptionMiddleware.cs" initialLine="28" containingFunctionPresentation="method 'HandleExceptionAsync'">
+            <startOffsets>
+              <option value="615" />
+            </startOffsets>
+            <endOffsets>
+              <option value="665" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/LibraryAPI/Middleware/ExceptionMiddleware.cs</url>
+          <line>18</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\LibraryAPI\Middleware\ExceptionMiddleware.cs" initialLine="18" containingFunctionPresentation="method 'InvokeAsync'">
+            <startOffsets>
+              <option value="366" />
+            </startOffsets>
+            <endOffsets>
+              <option value="391" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataLayer/Repositories/Implementations/UserRepository.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\DataLayer\Repositories\Implementations\UserRepository.cs" initialLine="35" containingFunctionPresentation="method 'GetLoansByUser'">
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
+          <line>136</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="137" containingFunctionPresentation="method 'GetLoansByUser'">
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
+          <line>138</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="138" containingFunctionPresentation="method 'GetLoansByUser'">
+            <startOffsets>
+              <option value="4136" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4205" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
+          <line>139</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="139" containingFunctionPresentation="method 'GetLoansByUser'">
+            <startOffsets>
+              <option value="4214" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4225" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
+          <line>125</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="125" containingFunctionPresentation="method 'GetWithLoans'">
+            <startOffsets>
+              <option value="3747" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3799" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
+          <line>132</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="132" containingFunctionPresentation="method 'GetWithLoans'">
+            <startOffsets>
+              <option value="3968" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3979" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
