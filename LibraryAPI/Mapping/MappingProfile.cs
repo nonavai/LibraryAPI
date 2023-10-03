@@ -27,6 +27,7 @@ public class MappingProfileApi : Profile
         CreateMap<AuthorRequest, AuthorDto>();
         CreateMap<GenreRequest, GenreDto>();
         CreateMap<BookLoanRequest, BookLoanDto>();
+        CreateMap<BookRequest, BookDto>();
         CreateMap<AddBookRelations, RelationsDto>();
 
 
@@ -65,14 +66,12 @@ public class MappingProfileApi : Profile
             })));
         CreateMap<GenreDto, GenreResponse>();
         CreateMap<BookDto, BookResponse>()
-            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(c => new GenreDto
+            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(c => new GenreResponse
             {
-                Id = c.Id,
                 Name = c.Name
             })))
-            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors.Select(c => new AuthorDto
+            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors.Select(c => new AuthorResponse
             {
-                Id = c.Id,
                 Name = c.Name,
                 Birth = c.Birth,
                 Death = c.Death,

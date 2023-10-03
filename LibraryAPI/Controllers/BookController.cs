@@ -97,7 +97,7 @@ public class BookController : ControllerBase
     
     [Authorize]
     [HttpPost]
-    [Route("{id:int}")]
+    [Route("{id:int}/AddRelations")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AddBookRelations request)
     {
         var dto = _mapper.Map<RelationsDto>(request);

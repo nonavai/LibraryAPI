@@ -14,7 +14,7 @@ public class BookValidator : AbstractValidator<BookDto>
 
         RuleFor(book => book.ISBN13)
             .NotEmpty().WithMessage("ISBN-13 is required.")
-            .Length(13).WithMessage("ISBN-13 must be exactly 13 characters.").Must(BeAValidIsbn);
+            .Must(BeAValidIsbn);
 
         RuleFor(book => book.Name)
             .NotEmpty().WithMessage("Name is required.")
