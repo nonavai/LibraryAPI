@@ -47,7 +47,7 @@ public class GenreController : ControllerBase
     }
     
     [HttpGet]
-    [Route("{id:int}/Books")]
+    [Route("{id:int}/Books")] //TODO: Connection problem  
     public async Task<IActionResult> GetBooks([FromRoute] int id)
     {
         var dto = await _genreService.GetBooksByGenre(id);

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.Models.Author;
 using BusinessLogic.Models.Book;
-using BusinessLogic.Validators;
 using DataLayer.Entities;
 using DataLayer.Repositories;
 using FluentValidation;
@@ -97,7 +96,7 @@ public class AuthorService : IAuthorService
         return await _authorRepository.ExistsAsync(id);
     }
 
-    public async Task<IQueryable<BookDto>> GetBookByAuthor(int id)
+    public async Task<IEnumerable<BookDto>> GetBookByAuthor(int id)
     {
         var dtos = _mapper.Map<IQueryable<BookDto>>( await _authorRepository.GetBookByAuthor(id));
         return dtos;

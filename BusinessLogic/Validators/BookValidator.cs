@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using BusinessLogic.Models.Book;
+﻿using BusinessLogic.Models.Book;
 using FluentValidation;
 
 namespace BusinessLogic.Validators;

@@ -12,8 +12,24 @@ public class AuthorRepository : GenericRepository<Author>, IAuthorRepository
         this.db = db;
     }
     
-    public async Task<IQueryable<Book>> GetBookByAuthor(int id)
+    public override async Task<Author?> GetByIdAsync(int id)
     {
-        return db.Books.AsNoTracking().Where(b => b.Authors.Any(author => author.Id == id)).AsQueryable();
+        return await db.Authors
+            //.AsNoTracking()
+            .Include(b => b.Books)
+            .FirstOrDefaultAsync(b => b.Id == id);
+    }
+
+    public override async Task<IEnumerable<Author>> GetAllAsync()
+    {
+        return db.Authors
+            .AsNoTracking()
+            .Include(b => b.Books)
+            .AsEnumerable();
+    }
+    
+    public async Task<IEnumerable<Book>> GetBookByAuthor(int id)
+    {
+        return db.Books/*.AsNoTracking()*/.Where(b => b.Authors.Any(author => author.Id == id)).AsEnumerable();
     }
 }

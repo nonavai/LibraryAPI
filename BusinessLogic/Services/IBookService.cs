@@ -1,7 +1,5 @@
 ﻿using BusinessLogic.Models.Book;
 using BusinessLogic.Models.BookLoan;
-using DataLayer.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BusinessLogic.Services;
 

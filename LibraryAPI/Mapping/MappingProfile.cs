@@ -79,13 +79,13 @@ public class MappingProfileApi : Profile
             })));
         CreateMap<BookClearDto, BookClearResponse>();
 
-        CreateMap<IEnumerable<UserDto>, IEnumerable<UserResponse>>();
+        /*CreateMap<IEnumerable<UserDto>, IEnumerable<UserResponse>>();
         CreateMap<IEnumerable<AuthorDto>, IEnumerable<AuthorResponse>>();
         CreateMap<IEnumerable<BookDto>, IEnumerable<BookResponse>>();
         CreateMap<IEnumerable<GenreDto>, IEnumerable<GenreResponse>>();
         CreateMap<IEnumerable<BookLoanDto>, IEnumerable<BookLoanResponse>>();
         CreateMap<IQueryable<BookDto>, IQueryable<BookResponse>>();
-        CreateMap<IQueryable<BookLoanDto>, IQueryable<BookLoanResponse>>();
+        CreateMap<IQueryable<BookLoanDto>, IQueryable<BookLoanResponse>>();*/
 
 
     }

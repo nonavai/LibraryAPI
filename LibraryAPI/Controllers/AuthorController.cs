@@ -42,11 +42,11 @@ public class AuthorController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{id:int}/Books")]
+    [Route("{id:int}/Books")] //TODO: Connection problem  
     public async Task<IActionResult> GetBooks([FromRoute] int id)
     {
         var dto = await _authorService.GetBookByAuthor(id);
-        var response = _mapper.Map<IQueryable<BookResponse>>(dto);
+        var response = _mapper.Map<IEnumerable<BookResponse>>(dto);
         return Ok(response);
     }
 

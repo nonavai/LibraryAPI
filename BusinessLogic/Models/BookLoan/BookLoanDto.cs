@@ -1,7 +1,4 @@
-﻿using BusinessLogic.Models.Book;
-using BusinessLogic.Models.User;
-
-namespace BusinessLogic.Models.BookLoan;
+﻿namespace BusinessLogic.Models.BookLoan;
 
 public class BookLoanDto
 {

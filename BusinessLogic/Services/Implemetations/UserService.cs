@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.Models.BookLoan;
 using BusinessLogic.Models.User;
-using BusinessLogic.Validators;
 using DataLayer.Entities;
 using DataLayer.Repositories;
 using FluentValidation;

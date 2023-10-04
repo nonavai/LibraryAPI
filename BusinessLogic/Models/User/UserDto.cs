@@ -1,5 +1,4 @@
-﻿using BusinessLogic.Models.BookLoan;
-using Shared.Enums;
+﻿using Shared.Enums;
 
 namespace BusinessLogic.Models.User;
 
