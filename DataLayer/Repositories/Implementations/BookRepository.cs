@@ -16,7 +16,7 @@ public class BookRepository : GenericRepository<Book>, IBookRepository
     public override async Task<Book?> GetByIdAsync(int id)
     {
         return await db.Books
-            .AsNoTracking()
+            //.AsNoTracking()
             .Include(b => b.Authors)
             .Include(b => b.Genres)
             .FirstOrDefaultAsync(b => b.Id == id);

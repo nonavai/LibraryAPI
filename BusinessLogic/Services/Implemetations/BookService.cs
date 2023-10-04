@@ -12,19 +12,19 @@ namespace BusinessLogic.Services.Implemetations;
 public class BookService :  IBookService
 {
     private readonly IBookRepository _bookRepository;
-    private readonly IBookGenreRepository _bookGenreRepository;
-    private readonly IBookAuthorRepository _bookAuthorRepository;
+    private readonly IAuthorRepository _authorRepository;
+    private readonly IGenreRepository _genreRepository;
     private readonly IMapper _mapper;
     private readonly IValidator<BookDto> _validator;
     
 
-    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookDto> validator, IBookGenreRepository bookGenreRepository, IBookAuthorRepository bookAuthorRepository)
+    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookDto> validator, IAuthorRepository authorRepository, IGenreRepository genreRepository)
     {
         _bookRepository = bookRepository;
         _mapper = mapper;
         _validator = validator;
-        _bookGenreRepository = bookGenreRepository;
-        _bookAuthorRepository = bookAuthorRepository;
+        _authorRepository = authorRepository;
+        _genreRepository = genreRepository;
     }
 
 
@@ -124,25 +124,20 @@ public class BookService :  IBookService
 
     public async Task<BookDto> AddRelations(RelationsDto dto)
     {
+        var book = await _bookRepository.GetByIdAsync(dto.BookId);
+        if (book == null) throw new NotFoundException();
         foreach (var id in dto.Genres)
         {
-            await _bookGenreRepository.AddAsync(new BookGenres
-            {
-                BookId = dto.Id,
-                GenreId = id
-            });
+            book.Genres.Add(await _genreRepository.GetByIdAsync(id));
         }
         
         foreach (var id in dto.Authors)
         {
-            await _bookAuthorRepository.AddAsync(new BookAuthors
-            {
-                BookId = dto.Id,
-                AuthorId = id
-            });
+            book.Authors.Add(await _authorRepository.GetByIdAsync(id));
         }
 
-        var bookDto = _mapper.Map<BookDto>(await _bookRepository.GetByIdAsync(dto.Id));
+        await _bookRepository.UpdateAsync(book);
+        var bookDto = _mapper.Map<BookDto>(await _bookRepository.GetByIdAsync(dto.BookId));
         return bookDto;
     }
 }

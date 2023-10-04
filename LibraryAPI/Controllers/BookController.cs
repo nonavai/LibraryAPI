@@ -101,6 +101,7 @@ public class BookController : ControllerBase
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AddBookRelations request)
     {
         var dto = _mapper.Map<RelationsDto>(request);
+        dto.BookId = id;
         var responseDto = await _bookService.AddRelations(dto);
         var response = _mapper.Map<BookResponse>(responseDto);
         return Ok(response);

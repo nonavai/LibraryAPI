@@ -99,10 +99,8 @@ void ConfigureServices(IServiceCollection serviceCollection)
     serviceCollection.AddScoped<IValidator<BookDto>, BookValidator>();
     serviceCollection.AddScoped<IValidator<AuthorDto>, AuthorValidator>();
     serviceCollection.AddScoped<IValidator<GenreDto>, GenreValidator>();
-    //
-    serviceCollection.AddScoped<IBookAuthorRepository, BookAuthorRepository>();
-    serviceCollection.AddScoped<IBookGenreRepository, BookGenreRepository>();
     
+
     serviceCollection.AddScoped<IUserRepository, UserRepository>();
     serviceCollection.AddScoped<IUserService, UserService>();
 

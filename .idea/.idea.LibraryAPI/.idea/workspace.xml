@@ -9,22 +9,35 @@
   <component name="ChangeListManager">
     <list default="true" id="dbe0e4b9-494b-485b-ad7e-097a41d00318" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Validators/BookValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Validators/BookValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Models/Book/RelationsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Models/Book/RelationsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/Entities/Book.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/Entities/Book.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/Repositories/Implementations/BookRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/Repositories/Implementations/BookRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/ref/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/ref/DataLayer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/refint/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/refint/DataLayer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/BookController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/BookController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryAPI/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Mapping/MappingProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/LibraryAPI.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/ref/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/ref/LibraryAPI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/refint/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/obj/Debug/net7.0/refint/LibraryAPI.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +142,8 @@
       <updated>1695714921201</updated>
       <workItem from="1695714967827" duration="73702000" />
       <workItem from="1696225650397" duration="38387000" />
-      <workItem from="1696324374166" duration="2548000" />
+      <workItem from="1696324374166" duration="2946000" />
+      <workItem from="1696412036022" duration="4698000" />
     </task>
     <servers />
   </component>
@@ -271,6 +285,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs</url>
+          <line>138</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\BookService.cs" initialLine="143" containingFunctionPresentation="method 'AddRelations'">
+            <startOffsets>
+              <option value="4265" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4305" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs</url>
+          <line>130</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\BookService.cs" initialLine="135" containingFunctionPresentation="method 'AddRelations'">
+            <startOffsets>
+              <option value="4047" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4104" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
