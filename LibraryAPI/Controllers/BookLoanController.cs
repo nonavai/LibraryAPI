@@ -37,7 +37,7 @@ public class BookLoanController : ControllerBase
 
     [HttpPost]
     [Route("Add")]
-    public async Task<IActionResult> AddLoan(GenreRequest entity)
+    public async Task<IActionResult> AddLoan(BookLoanRequest entity)
     {
         var dto = _mapper.Map<BookLoanDto>(entity);
         var responseDto = await _bookLoanService.AddAsync(dto);
