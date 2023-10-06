@@ -73,7 +73,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
-    //[ValidateToken] //to make it work - comment that attribute
+    
     [Authorize]
     [HttpDelete]
     [Route("{id:int}")]

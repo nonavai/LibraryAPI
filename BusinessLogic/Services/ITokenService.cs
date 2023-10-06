@@ -9,4 +9,6 @@ public interface ITokenService
     Task<string> GenerateAccessToken(RefreshTokenDto refreshTokenDto);
     Task<RefreshTokenDto?> GetByUserIdAsync(int id);
     Task<int> GetUserIdFromToken(string token);
+    Task<string> RefreshToken(string? refreshToken);
+
 }

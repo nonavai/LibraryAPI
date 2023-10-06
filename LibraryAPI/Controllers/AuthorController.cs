@@ -60,7 +60,7 @@ public class AuthorController : ControllerBase
         return Ok(response);
     }
 
-    //[ValidateToken] //to make it work - comment that attribute
+    
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
@@ -72,8 +72,7 @@ public class AuthorController : ControllerBase
         var response = _mapper.Map<AuthorResponse>(newUserDto);
         return Ok(response);
     }
-
-    //[ValidateToken] //to make it work - comment that attribute
+    
     [Authorize]
     [HttpDelete]
     [Route("{id:int}")]

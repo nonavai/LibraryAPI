@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BusinessLogic.Models.RefreshToken;
 using BusinessLogic.Models.User;
 using BusinessLogic.Services;
 using LibraryAPI.Requests.User;
@@ -7,7 +6,6 @@ using LibraryAPI.Responses.BookLoan;
 using LibraryAPI.Responses.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Shared.Roles;
 
 namespace LibraryAPI.Controllers;
 
@@ -26,7 +24,7 @@ public class UserController : ControllerBase
         _tokenService = tokenService;
     }
 
-    [Authorize(Roles = Roles.Admin)]
+    [Authorize/*(Roles = Roles.Admin)*/]
     [HttpGet]
     [Route("{id:int}")]
     public async Task<IActionResult> Get([FromRoute] int id)
@@ -36,7 +34,7 @@ public class UserController : ControllerBase
         return Ok(response);
     }
     
-    [Authorize(Roles = Roles.Admin)]
+    [Authorize/*(Roles = Roles.Admin)*/]
     [HttpGet]
     [Route("{id:int}/full")]
     public async Task<IActionResult> GetUserLoan([FromRoute] int id)
@@ -59,13 +57,7 @@ public class UserController : ControllerBase
     [Route("LogIn")]
     public async Task<IActionResult> Login(LogInRequest entity)
     {
-        var dto = await _userService.GetByEmailAsync(entity.Email);
-        
-        if (dto.Password != entity.Password)
-        {
-            return BadRequest("Wrong Password");
-        }
-
+        var dto = await _userService.LogInAsync(entity.Email, entity.Password);
         var response = _mapper.Map<LogInResponse>(dto);
         var newRefreshToken = await _tokenService.GenerateRefreshToken(dto);
         var accessToken = await _tokenService.GenerateAccessToken(newRefreshToken);
@@ -84,7 +76,7 @@ public class UserController : ControllerBase
         return Ok(response);
     }
     
-    //[ValidateToken] //to make it work - comment that attribute
+    //[ValidateToken] //check if user wants to edit himself
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
@@ -97,7 +89,7 @@ public class UserController : ControllerBase
         return Ok(response);
     }
     
-    //[ValidateToken] //to make it work - comment that attribute
+    //[ValidateToken] //check if user wants to delete himself
     [Authorize]
     [HttpDelete]
     [Route("{id:int}")]
@@ -113,23 +105,9 @@ public class UserController : ControllerBase
     [Route("UpdateToken")]
     public async Task<IActionResult> RefreshToken()
     {
-        var refreshToken = Request.Cookies["AuthorizationRefresh"];
-        if (refreshToken == null)
-        {
-            return BadRequest("Invalid token");
-        }
-
-        var userId = await _tokenService.GetUserIdFromToken(refreshToken);
-        var token = new RefreshTokenDto() 
-            {
-                UserId = userId,
-                Token = refreshToken
-            };
-        var newAccessToken = await _tokenService.GenerateAccessToken(token);
+        var newAccessToken = await _tokenService.RefreshToken(Request.Cookies["AuthorizationRefresh"]);
         Response.Cookies.Delete("Authorization", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
-        Response.Cookies.Delete("AuthorizationRefresh", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true }); 
         Response.Cookies.Append("Authorization", newAccessToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
-
         return Ok(newAccessToken);
     }
 }

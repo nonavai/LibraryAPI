@@ -29,7 +29,7 @@ public class TokenService : ITokenService
         _refreshTokenRepository = refreshTokenRepository;
         _userService = userService;
     }
-    public async Task<RefreshTokenDto> GenerateRefreshToken(UserDto user) //TODO: delete old token on creating
+    public async Task<RefreshTokenDto> GenerateRefreshToken(UserDto user) 
     {
         var claims = new List<Claim>
         {
@@ -137,7 +137,23 @@ public class TokenService : ITokenService
         var userId = Convert.ToInt32(userIdClaim.Value);
         return userId;
     }
-    
+
+    public async Task<string> RefreshToken(string? refreshToken)
+    {
+        if (refreshToken.IsNullOrEmpty())
+        {
+            throw new BadAuthorizeException("Token Not Found");
+        }
+        var userId = await GetUserIdFromToken(refreshToken);
+        var token = new RefreshTokenDto() 
+        {
+            UserId = userId,
+            Token = refreshToken
+        };
+        return await GenerateAccessToken(token);
+        
+    }
+
     private async Task AddClaimRoles(int userId, List<Claim> claims)
     {
         var user = await _userService.GetByIdAsync(userId);

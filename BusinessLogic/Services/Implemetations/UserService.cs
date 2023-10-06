@@ -138,4 +138,15 @@ public class UserService : IUserService
         var dto = entities.Select(entity=> _mapper.Map<BookLoanDto>(entity));
         return dto;
     }
+
+    public async Task<UserDto> LogInAsync(string email, string password)
+    {
+        var dto = await GetByEmailAsync(email);
+        if (dto.Password != password)
+        {
+            throw new BadAuthorizeException("Wrong Password");
+        }
+
+        return dto;
+    }
 }

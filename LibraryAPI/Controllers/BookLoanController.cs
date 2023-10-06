@@ -45,7 +45,7 @@ public class BookLoanController : ControllerBase
         return Ok(response);
     }
 
-    //[ValidateToken] //to make it work - comment that attribute
+    
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]

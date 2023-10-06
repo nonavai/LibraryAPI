@@ -65,7 +65,6 @@ public class GenreController : ControllerBase
         return Ok(response);
     }
     
-    //[ValidateToken] //to make it work - comment that attribute
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
@@ -78,7 +77,6 @@ public class GenreController : ControllerBase
         return Ok(response);
     }
     
-    //[ValidateToken] //to make it work - comment that attribute
     [Authorize]
     [HttpDelete]
     [Route("{id:int}")]

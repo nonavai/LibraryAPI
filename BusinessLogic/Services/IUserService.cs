@@ -10,5 +10,5 @@ public interface IUserService : IBaseService<UserDto>
     Task<bool> IsEmailExist(string email);
     Task<UserLoanDto> GetWithLoans(int id);
     Task<IQueryable<BookLoanDto>> GetLoansByUser(int id);
-
+    Task<UserDto> LogInAsync(string email, string password);
 }

@@ -33,9 +33,7 @@ public class LibraryContext : Microsoft.EntityFrameworkCore.DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new BookLoanConfiguration());
-        modelBuilder.ApplyConfiguration(new BookConfiguration());
-        //modelBuilder.ApplyConfigurationsFromAssembly(typeof(BookLoanConfiguration).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(BookLoanConfiguration).Assembly);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
