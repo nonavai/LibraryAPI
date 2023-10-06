@@ -55,6 +55,6 @@ public class ExceptionMiddleware
 
         context.Response.StatusCode = result.StatusCode;
 
-        await context.Response.WriteAsync(result.ToString());
+        await context.Response.WriteAsync(result.Title);
     }
 }

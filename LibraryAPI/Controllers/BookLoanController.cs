@@ -51,10 +51,6 @@ public class BookLoanController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> CloseLoan([FromRoute] int id, [FromBody] DateTime returnDate)
     {
-        if (!await _bookLoanService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
         var newUserDto = await _bookLoanService.CloseLoan(id, returnDate);
         var response = _mapper.Map<BookLoanResponse>(newUserDto);
         return Ok(response);

@@ -47,11 +47,11 @@ public class GenreController : ControllerBase
     }
     
     [HttpGet]
-    [Route("{id:int}/Books")] //TODO: Connection problem  
+    [Route("{id:int}/Books")]
     public async Task<IActionResult> GetBooks([FromRoute] int id)
     {
         var dto = await _genreService.GetBooksByGenre(id);
-        var response = _mapper.Map<IQueryable<BookResponse>>(dto);
+        var response = _mapper.Map<IEnumerable<BookResponse>>(dto);
         return Ok(response);
     }
 
@@ -71,12 +71,6 @@ public class GenreController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] GenreRequest entity)
     {
-        
-        if (!await _genreService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var dto = _mapper.Map<GenreDto>(entity);
         dto.Id = id;
         var newUserDto = await _genreService.UpdateAsync(dto);
@@ -90,11 +84,6 @@ public class GenreController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute]int id)
     {
-        if (!await _genreService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var responseDto = await _genreService.DeleteAsync(id);
         var response = _mapper.Map<GenreResponse>(responseDto);
         return Ok(response);

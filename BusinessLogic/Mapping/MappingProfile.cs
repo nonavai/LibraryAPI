@@ -32,7 +32,6 @@ public class MappingProfile : Profile
             }))).ReverseMap();
         CreateMap<UserDto, User>().ReverseMap();
         CreateMap<BookLoan, BookLoanDto>().ReverseMap();
-        //CreateMap<IEnumerable<BookLoan>, IEnumerable<BookLoanDto>>().ReverseMap();
         CreateMap<User, UserLoanDto>()
             .ForMember(dest => dest.BookLoans, opt => opt.MapFrom(src => src.BookLoans.Select(c => new BookLoanDto
             {
@@ -63,12 +62,6 @@ public class MappingProfile : Profile
                 IsAvailable = c.IsAvailable
             }))).ReverseMap();
         
-
-        /*CreateMap<IEnumerable<User>, IEnumerable<UserDto>>().ReverseMap();
-        CreateMap<IQueryable<BookLoan>, IQueryable<BookLoanDto>>().ReverseMap();
-        CreateMap<IEnumerable<Author>, IEnumerable<AuthorDto>>().ReverseMap();
-        CreateMap<IEnumerable<Genre>, IEnumerable<GenreDto>>().ReverseMap();
-        CreateMap<IQueryable<Book>, IQueryable<BookDto>>().ReverseMap();*/
     }
     
 }

@@ -28,8 +28,8 @@ public class AuthorRepository : GenericRepository<Author>, IAuthorRepository
             .AsEnumerable();
     }
     
-    public async Task<IEnumerable<Book>> GetBookByAuthor(int id)
+    public async Task<IQueryable<Book>> GetBookByAuthor(int id)
     {
-        return db.Books/*.AsNoTracking()*/.Where(b => b.Authors.Any(author => author.Id == id)).AsEnumerable();
+        return db.Books.Where(b => b.Authors.Any(author => author.Id == id)).AsQueryable();
     }
 }

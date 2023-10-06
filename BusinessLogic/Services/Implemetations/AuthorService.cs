@@ -98,7 +98,7 @@ public class AuthorService : IAuthorService
 
     public async Task<IEnumerable<BookDto>> GetBookByAuthor(int id)
     {
-        var dtos = _mapper.Map<IQueryable<BookDto>>( await _authorRepository.GetBookByAuthor(id));
+        var dtos = _mapper.Map<IEnumerable<BookDto>>( await _authorRepository.GetBookByAuthor(id));
         return dtos;
     }
 }

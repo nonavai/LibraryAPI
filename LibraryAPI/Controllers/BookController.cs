@@ -66,12 +66,6 @@ public class BookController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] BookRequest entity)
     {
-
-        if (!await _bookService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var dto = _mapper.Map<BookDto>(entity);
         dto.Id = id;
         var newUserDto = await _bookService.UpdateAsync(dto);
@@ -85,11 +79,6 @@ public class BookController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        if (!await _bookService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var responseDto = await _bookService.DeleteAsync(id);
         var response = _mapper.Map<BookResponse>(responseDto);
         return Ok(response);

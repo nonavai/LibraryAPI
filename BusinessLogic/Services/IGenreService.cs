@@ -5,6 +5,6 @@ namespace BusinessLogic.Services;
 
 public interface IGenreService : IBaseService<GenreDto>
 {
-   Task<IQueryable<BookDto>> GetBooksByGenre(int id);
+   Task<IEnumerable<BookDto>> GetBooksByGenre(int id);
 
 }

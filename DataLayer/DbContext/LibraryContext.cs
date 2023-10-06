@@ -13,7 +13,7 @@ public class LibraryContext : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<Book> Books { get; set; }
     public DbSet<Genre> Genres { get; set; }
     public DbSet<Author> Authors { get; set; }
-    public DbSet<BookLoan?> BookLoans { get; set; }
+    public DbSet<BookLoan> BookLoans { get; set; }
     public DbSet<RefreshToken> RefreshTokens { get; set; }
     public DbSet<BookGenres> BookGenres { get; set; }
     public DbSet<BookAuthors> BookAuthors { get; set; }
@@ -27,7 +27,7 @@ public class LibraryContext : Microsoft.EntityFrameworkCore.DbContext
     }
     public LibraryContext(DbContextOptions<LibraryContext> options, IConfiguration configuration) : base(options)
     {
-        DbPath = configuration.GetConnectionString("CarSharingDb");
+        DbPath = configuration.GetConnectionString("DataBase");
     }
     
 
@@ -35,6 +35,7 @@ public class LibraryContext : Microsoft.EntityFrameworkCore.DbContext
     {
         modelBuilder.ApplyConfiguration(new BookLoanConfiguration());
         modelBuilder.ApplyConfiguration(new BookConfiguration());
+        //modelBuilder.ApplyConfigurationsFromAssembly(typeof(BookLoanConfiguration).Assembly);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)

@@ -93,9 +93,9 @@ public class GenreService: IGenreService
         return await _genreRepository.ExistsAsync(id);
     }
 
-    public async Task<IQueryable<BookDto>> GetBooksByGenre(int id)
+    public async Task<IEnumerable<BookDto>> GetBooksByGenre(int id)
     {
-        var dtos = _mapper.Map<IQueryable<BookDto>>( await _genreRepository.GetBooksByGenre(id));
+        var dtos = _mapper.Map<IEnumerable<BookDto>>( await _genreRepository.GetBooksByGenre(id));
         return dtos;
     }
 }

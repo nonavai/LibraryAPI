@@ -127,7 +127,7 @@ public class UserController : ControllerBase
             };
         var newAccessToken = await _tokenService.GenerateAccessToken(token);
         Response.Cookies.Delete("Authorization", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
-        Response.Cookies.Delete("AuthorizationRefresh", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true }); //TODO: !!!
+        Response.Cookies.Delete("AuthorizationRefresh", new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true }); 
         Response.Cookies.Append("Authorization", newAccessToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
 
         return Ok(newAccessToken);

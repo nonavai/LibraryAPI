@@ -4,5 +4,5 @@ namespace DataLayer.Repositories;
 
 public interface IAuthorRepository : IBaseRepository<Author>
 {
-    Task<IEnumerable<Book>> GetBookByAuthor(int id);
+    Task<IQueryable<Book>> GetBookByAuthor(int id);
 }

@@ -31,6 +31,6 @@ public class GenreRepository : GenericRepository<Genre>, IGenreRepository
 
     public async Task<IQueryable<Book>> GetBooksByGenre(int id)
     {
-        return db.Books/*.AsNoTracking()*/.Where(b => b.Genres.Any(genre => genre.Id == id)).AsQueryable();
+        return  db.Books.Where(b => b.Genres.Any(genre => genre.Id == id)).AsQueryable();
     }
 }

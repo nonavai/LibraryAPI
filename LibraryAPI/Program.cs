@@ -64,14 +64,14 @@ builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerConfigurationExtension>();
-var connectionString = builder.Configuration.GetConnectionString("CarSharingDb");
+var connectionString = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddDbContext<LibraryContext>(options => options.UseSqlServer(connectionString));
 ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
 
-//Configure(app);
+Configure(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -42,7 +42,7 @@ public class AuthorController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{id:int}/Books")] //TODO: Connection problem  
+    [Route("{id:int}/Books")]
     public async Task<IActionResult> GetBooks([FromRoute] int id)
     {
         var dto = await _authorService.GetBookByAuthor(id);
@@ -66,12 +66,6 @@ public class AuthorController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AuthorRequest entity)
     {
-
-        if (!await _authorService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var dto = _mapper.Map<AuthorDto>(entity);
         dto.Id = id;
         var newUserDto = await _authorService.UpdateAsync(dto);
@@ -85,11 +79,6 @@ public class AuthorController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        if (!await _authorService.ExistsAsync(id))
-        {
-            return NotFound();
-        }
-
         var responseDto = await _authorService.DeleteAsync(id);
         var response = _mapper.Map<AuthorResponse>(responseDto);
         return Ok(response);

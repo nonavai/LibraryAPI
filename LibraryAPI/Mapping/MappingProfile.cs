@@ -38,6 +38,7 @@ public class MappingProfileApi : Profile
         CreateMap<UserLoanDto, UserLoanResponse>()
             .ForMember(dest => dest.BookLoans, opt => opt.MapFrom(src => src.BookLoans.Select(c => new BookLoanResponse()
             {
+                Id = c.Id,
                 UserId = c.UserId,
                 BookId = c.BookId,
                 LoanDate = c.LoanDate,
@@ -68,25 +69,17 @@ public class MappingProfileApi : Profile
         CreateMap<BookDto, BookResponse>()
             .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(c => new GenreResponse
             {
+                Id = c.Id,
                 Name = c.Name
             })))
             .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors.Select(c => new AuthorResponse
             {
+                Id = c.Id,
                 Name = c.Name,
                 Birth = c.Birth,
                 Death = c.Death,
                 Description = c.Description
             })));
         CreateMap<BookClearDto, BookClearResponse>();
-
-        /*CreateMap<IEnumerable<UserDto>, IEnumerable<UserResponse>>();
-        CreateMap<IEnumerable<AuthorDto>, IEnumerable<AuthorResponse>>();
-        CreateMap<IEnumerable<BookDto>, IEnumerable<BookResponse>>();
-        CreateMap<IEnumerable<GenreDto>, IEnumerable<GenreResponse>>();
-        CreateMap<IEnumerable<BookLoanDto>, IEnumerable<BookLoanResponse>>();
-        CreateMap<IQueryable<BookDto>, IQueryable<BookResponse>>();
-        CreateMap<IQueryable<BookLoanDto>, IQueryable<BookLoanResponse>>();*/
-
-
     }
 }
