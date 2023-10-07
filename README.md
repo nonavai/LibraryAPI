@@ -9,5 +9,5 @@ To Run the app you should:
 
 ! If you have problems with building project its might be caused by missing "bin" and "obj" files. In that case go to Visual Studio Terminal and write "dotnet build".
 
-On api level I decided to leave mapping as on DAL, as I thought that adding BLL dependency on API level is not desirable within the development on REST.
+On api level I decided to leave mapping as on BLL, as I thought that adding BLL dependency on API level is not desirable within the development on REST.
 
