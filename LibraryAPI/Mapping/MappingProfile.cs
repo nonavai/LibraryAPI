@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿/*using AutoMapper;
 using BusinessLogic.Models.Author;
 using BusinessLogic.Models.Book;
 using BusinessLogic.Models.BookLoan;
@@ -82,4 +82,4 @@ public class MappingProfileApi : Profile
             })));
         CreateMap<BookClearDto, BookClearResponse>();
     }
-}
+}*/

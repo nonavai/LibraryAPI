@@ -1,7 +1,8 @@
-﻿namespace LibraryAPI.Requests.Author;
+namespace BusinessLogic.Models.Author;
 
-public record AuthorRequest
+public class AuthorClearDto
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public DateTime? Birth { get; set; }
     public DateTime? Death { get; set; }

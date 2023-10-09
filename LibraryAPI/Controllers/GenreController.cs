@@ -1,14 +1,5 @@
-﻿using AutoMapper;
-using BusinessLogic.Models.Genre;
-using BusinessLogic.Models.RefreshToken;
-using BusinessLogic.Models.User;
+﻿using BusinessLogic.Models.Genre;
 using BusinessLogic.Services;
-using LibraryAPI.Requests.Genre;
-using LibraryAPI.Requests.User;
-using LibraryAPI.Responses.Book;
-using LibraryAPI.Responses.BookLoan;
-using LibraryAPI.Responses.Genre;
-using LibraryAPI.Responses.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,21 +10,18 @@ namespace LibraryAPI.Controllers;
 public class GenreController : ControllerBase
 {
     private readonly IGenreService _genreService;
-    private readonly IMapper _mapper;
-    
 
-    public GenreController(IGenreService genreService, IMapper mapper)
+
+    public GenreController(IGenreService genreService)
     {
         _genreService = genreService;
-        _mapper = mapper;
     }
 
     [HttpGet]
     [Route("{id:int}")]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        var dto = await _genreService.GetByIdAsync(id);
-        var response = _mapper.Map<GenreBooksResponse>(dto);
+        var response = await _genreService.GetByIdAsync(id);
         return Ok(response);
     }
     
@@ -41,8 +29,7 @@ public class GenreController : ControllerBase
     [Route("All")]
     public async Task<IActionResult> GetAll()
     {
-        var dto = await _genreService.GetAllAsync();
-        var response = _mapper.Map<IEnumerable<GenreResponse>>(dto);
+        var response = await _genreService.GetAllAsync();
         return Ok(response);
     }
     
@@ -50,30 +37,25 @@ public class GenreController : ControllerBase
     [Route("{id:int}/Books")]
     public async Task<IActionResult> GetBooks([FromRoute] int id)
     {
-        var dto = await _genreService.GetBooksByGenre(id);
-        var response = _mapper.Map<IEnumerable<BookResponse>>(dto);
+        var response = await _genreService.GetBooksByGenre(id);
         return Ok(response);
     }
 
     [HttpPost]
     [Route("Add")]
-    public async Task<IActionResult> Create(GenreRequest entity)
+    public async Task<IActionResult> Create(GenreClearDto request)
     {
-        var dto = _mapper.Map<GenreDto>(entity);
-        var responseDto = await _genreService.AddAsync(dto);
-        var response = _mapper.Map<GenreResponse>(responseDto);
+        var response = await _genreService.AddAsync(request);
         return Ok(response);
     }
     
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] GenreRequest entity)
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] GenreClearDto request)
     {
-        var dto = _mapper.Map<GenreDto>(entity);
-        dto.Id = id;
-        var newUserDto = await _genreService.UpdateAsync(dto);
-        var response = _mapper.Map<GenreResponse>(newUserDto);
+        request.Id = id;
+        var response = await _genreService.UpdateAsync(request);
         return Ok(response);
     }
     
@@ -82,8 +64,7 @@ public class GenreController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute]int id)
     {
-        var responseDto = await _genreService.DeleteAsync(id);
-        var response = _mapper.Map<GenreResponse>(responseDto);
+        var response = await _genreService.DeleteAsync(id);
         return Ok(response);
     }
 }

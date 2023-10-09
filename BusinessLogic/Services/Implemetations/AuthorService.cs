@@ -14,10 +14,10 @@ public class AuthorService : IAuthorService
 {
     private readonly IAuthorRepository _authorRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<AuthorDto> _validator;
+    private readonly IValidator<AuthorClearDto> _validator;
     
 
-    public AuthorService( IMapper mapper, IAuthorRepository authorRepository, IValidator<AuthorDto> validator)
+    public AuthorService( IMapper mapper, IAuthorRepository authorRepository, IValidator<AuthorClearDto> validator)
     {
         _mapper = mapper;
         _authorRepository = authorRepository;
@@ -36,13 +36,13 @@ public class AuthorService : IAuthorService
         return dto;
     }
 
-    public async Task<IEnumerable<AuthorDto>> GetAllAsync()
+    public async Task<IEnumerable<AuthorClearDto>> GetAllAsync()
     {
-        var dtos = _mapper.Map<IEnumerable<AuthorDto>>( await _authorRepository.GetAllAsync());
+        var dtos = _mapper.Map<IEnumerable<AuthorClearDto>>( await _authorRepository.GetAllAsync());
         return dtos;
     }
 
-    public async Task<AuthorDto> AddAsync(AuthorDto model)
+    public async Task<AuthorClearDto> AddAsync(AuthorClearDto model)
     {
         var validationResult = _validator.Validate(model);
         
@@ -51,12 +51,12 @@ public class AuthorService : IAuthorService
             throw new ValidationException(validationResult.Errors.ToString());
         }
         var entity = _mapper.Map<Author>(model);
-        var dto = _mapper.Map<AuthorDto>( await _authorRepository.AddAsync(entity));
+        var dto = _mapper.Map<AuthorClearDto>( await _authorRepository.AddAsync(entity));
         return dto;
     }
     
 
-    public async Task<AuthorDto> UpdateAsync(AuthorDto model)
+    public async Task<AuthorClearDto> UpdateAsync(AuthorClearDto model)
     {
         var existingEntity = await _authorRepository.GetByIdAsync(model.Id);
         if (existingEntity == null)
@@ -75,11 +75,11 @@ public class AuthorService : IAuthorService
         existingEntity.Description = model.Description;
 
 
-        var dto = _mapper.Map<AuthorDto>(await _authorRepository.UpdateAsync(existingEntity));
+        var dto = _mapper.Map<AuthorClearDto>(await _authorRepository.UpdateAsync(existingEntity));
         return dto;
     }
 
-    public async Task<AuthorDto> DeleteAsync(int id)
+    public async Task<AuthorClearDto> DeleteAsync(int id)
     {
         var entity = await _authorRepository.GetByIdAsync(id);
         if (entity == null)
@@ -87,7 +87,7 @@ public class AuthorService : IAuthorService
             throw new NotFoundException("Author not found");
         }
         
-        var dto = _mapper.Map<AuthorDto>( await _authorRepository.DeleteAsync(id));
+        var dto = _mapper.Map<AuthorClearDto>( await _authorRepository.DeleteAsync(id));
         return dto;
     }
 

@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BusinessLogic.Validators;
 
-public class AuthorValidator : AbstractValidator<AuthorDto>
+public class AuthorValidator : AbstractValidator<AuthorClearDto>
 {
     public AuthorValidator()
     {

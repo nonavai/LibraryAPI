@@ -1,6 +1,6 @@
-﻿namespace LibraryAPI.Requests.BookLoan;
+namespace BusinessLogic.Models.BookLoan;
 
-public record BookLoanRequest
+public class BookLoanClearDto
 {
     public int UserId { get; set; }
     public int BookId { get; set; }

@@ -1,6 +1,6 @@
-﻿namespace LibraryAPI.Responses.Genre;
+namespace BusinessLogic.Models.Genre;
 
-public record GenreResponse
+public class GenreClearDto
 {
     public int Id { get; set; }
     public string Name { get; set; }

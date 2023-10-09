@@ -1,9 +1,5 @@
-﻿using AutoMapper;
-using BusinessLogic.Models.Author;
+﻿using BusinessLogic.Models.Author;
 using BusinessLogic.Services;
-using LibraryAPI.Requests.Author;
-using LibraryAPI.Responses.Author;
-using LibraryAPI.Responses.Book;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +10,10 @@ namespace LibraryAPI.Controllers;
 public class AuthorController : ControllerBase
 {
     private readonly IAuthorService _authorService;
-    private readonly IMapper _mapper;
 
 
-    public AuthorController(IMapper mapper, IAuthorService authorService)
+    public AuthorController( IAuthorService authorService)
     {
-        _mapper = mapper;
         _authorService = authorService;
     }
 
@@ -28,8 +22,7 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> Get([FromRoute] int id)
     {
         var dto = await _authorService.GetByIdAsync(id);
-        var response = _mapper.Map<AuthorBooksResponse>(dto);
-        return Ok(response);
+        return Ok(dto);
     }
     
     [HttpGet]
@@ -37,8 +30,7 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> GetAll()
     {
         var dto = await _authorService.GetAllAsync();
-        var response = _mapper.Map<IEnumerable<AuthorResponse>>(dto);
-        return Ok(response);
+        return Ok(dto);
     }
 
     [HttpGet]
@@ -46,30 +38,24 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> GetBooks([FromRoute] int id)
     {
         var dto = await _authorService.GetBookByAuthor(id);
-        var response = _mapper.Map<IEnumerable<BookResponse>>(dto);
-        return Ok(response);
+        return Ok(dto);
     }
 
     [HttpPost]
     [Route("Add")]
-    public async Task<IActionResult> Create(AuthorRequest entity)
+    public async Task<IActionResult> Create(AuthorClearDto request)
     {
-        var dto = _mapper.Map<AuthorDto>(entity);
-        var responseDto = await _authorService.AddAsync(dto);
-        var response = _mapper.Map<AuthorResponse>(responseDto);
-        return Ok(response);
+        var responseDto = await _authorService.AddAsync(request);
+        return Ok(responseDto);
     }
-
     
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AuthorRequest entity)
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AuthorClearDto request)
     {
-        var dto = _mapper.Map<AuthorDto>(entity);
-        dto.Id = id;
-        var newUserDto = await _authorService.UpdateAsync(dto);
-        var response = _mapper.Map<AuthorResponse>(newUserDto);
+        request.Id = id;
+        var response = await _authorService.UpdateAsync(request);
         return Ok(response);
     }
     
@@ -78,8 +64,7 @@ public class AuthorController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
-        var responseDto = await _authorService.DeleteAsync(id);
-        var response = _mapper.Map<AuthorResponse>(responseDto);
+        var response = await _authorService.DeleteAsync(id);
         return Ok(response);
     }
 }

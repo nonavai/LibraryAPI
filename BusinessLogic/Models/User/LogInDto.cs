@@ -1,6 +1,6 @@
-﻿namespace LibraryAPI.Requests.User;
+namespace BusinessLogic.Models.User;
 
-public record LogInRequest
+public class LogInDto
 {
     public string Email { get; set; }
     public string Password { get; set; }

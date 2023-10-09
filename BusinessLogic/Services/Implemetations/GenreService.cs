@@ -14,10 +14,10 @@ public class GenreService: IGenreService
 {
     private readonly IGenreRepository _genreRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<GenreDto> _validator;
+    private readonly IValidator<GenreClearDto> _validator;
     
 
-    public GenreService( IMapper mapper, IValidator<GenreDto> validator, IGenreRepository genreRepository)
+    public GenreService( IMapper mapper, IValidator<GenreClearDto> validator, IGenreRepository genreRepository)
     {
         _mapper = mapper;
         _validator = validator;
@@ -36,13 +36,13 @@ public class GenreService: IGenreService
         return dto;
     }
 
-    public async Task<IEnumerable<GenreDto>> GetAllAsync()
+    public async Task<IEnumerable<GenreClearDto>> GetAllAsync()
     {
-        var dtos = _mapper.Map<IEnumerable<GenreDto>>( await _genreRepository.GetAllAsync());
+        var dtos = _mapper.Map<IEnumerable<GenreClearDto>>( await _genreRepository.GetAllAsync());
         return dtos;
     }
 
-    public async Task<GenreDto> AddAsync(GenreDto model)
+    public async Task<GenreClearDto> AddAsync(GenreClearDto model)
     {
         var validationResult = _validator.Validate(model);
         
@@ -51,12 +51,12 @@ public class GenreService: IGenreService
             throw new ValidationException(validationResult.Errors.ToString());
         }
         var entity = _mapper.Map<Genre>(model);
-        var dto = _mapper.Map<GenreDto>( await _genreRepository.AddAsync(entity));
+        var dto = _mapper.Map<GenreClearDto>( await _genreRepository.AddAsync(entity));
         return dto;
     }
     
 
-    public async Task<GenreDto> UpdateAsync(GenreDto model)
+    public async Task<GenreClearDto> UpdateAsync(GenreClearDto model)
     {
         var existingEntity = await _genreRepository.GetByIdAsync(model.Id);
         if (existingEntity == null)
@@ -72,11 +72,11 @@ public class GenreService: IGenreService
         }
         existingEntity.Name = model.Name;
 
-        var dto = _mapper.Map<GenreDto>(await _genreRepository.UpdateAsync(existingEntity));
+        var dto = _mapper.Map<GenreClearDto>(await _genreRepository.UpdateAsync(existingEntity));
         return dto;
     }
 
-    public async Task<GenreDto> DeleteAsync(int id)
+    public async Task<GenreClearDto> DeleteAsync(int id)
     {
         var entity = await _genreRepository.GetByIdAsync(id);
         if (entity == null)
@@ -84,7 +84,7 @@ public class GenreService: IGenreService
             throw new NotFoundException("Genre not found");
         }
         
-        var dto = _mapper.Map<GenreDto>( await _genreRepository.DeleteAsync(id));
+        var dto = _mapper.Map<GenreClearDto>( await _genreRepository.DeleteAsync(id));
         return dto;
     }
 

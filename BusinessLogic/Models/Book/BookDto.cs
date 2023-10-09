@@ -12,7 +12,7 @@ public class BookDto
     public string Name { get; set; }
     public string Description { get; set; }
     public bool IsAvailable { get; set; }
-    public IEnumerable<AuthorDto> Authors { get; set; }
-    public IEnumerable<GenreDto> Genres { get; set; }
+    public IEnumerable<AuthorClearDto> Authors { get; set; }
+    public IEnumerable<GenreClearDto> Genres { get; set; }
     
 }

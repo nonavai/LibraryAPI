@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BusinessLogic.Validators;
 
-public class GenreValidator : AbstractValidator<GenreDto>
+public class GenreValidator : AbstractValidator<GenreClearDto>
 {
     public GenreValidator()
     {

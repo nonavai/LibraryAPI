@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.Models.User;
 using BusinessLogic.Services;
-using LibraryAPI.Requests.User;
-using LibraryAPI.Responses.BookLoan;
-using LibraryAPI.Responses.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,8 +26,7 @@ public class UserController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        var dto = await _userService.GetByIdAsync(id);
-        var response = _mapper.Map<UserResponse>(dto);
+        var response = await _userService.GetByIdAsync(id);
         return Ok(response);
     }
     
@@ -39,8 +35,7 @@ public class UserController : ControllerBase
     [Route("{id:int}/full")]
     public async Task<IActionResult> GetUserLoan([FromRoute] int id)
     {
-        var dto = await _userService.GetWithLoans(id);
-        var response = _mapper.Map<UserLoanResponse>(dto);
+        var response = await _userService.GetWithLoans(id);
         return Ok(response);
     }
     
@@ -48,18 +43,16 @@ public class UserController : ControllerBase
     [Route("{id:int}/Loans")]
     public async Task<IActionResult> GetLoanByUser([FromRoute] int id)
     {
-        var dto = await _userService.GetLoansByUser(id);
-        var response = dto.Select(entity=> _mapper.Map<BookLoanResponse>(entity));
+        var response = await _userService.GetLoansByUser(id);
         return Ok(response);
     }
     
     [HttpPost]
     [Route("LogIn")]
-    public async Task<IActionResult> Login(LogInRequest entity)
+    public async Task<IActionResult> Login(LogInDto request)
     {
-        var dto = await _userService.LogInAsync(entity.Email, entity.Password);
-        var response = _mapper.Map<LogInResponse>(dto);
-        var newRefreshToken = await _tokenService.GenerateRefreshToken(dto);
+        var response = await _userService.LogInAsync(request.Email, request.Password);
+        var newRefreshToken = await _tokenService.GenerateRefreshToken(response);
         var accessToken = await _tokenService.GenerateAccessToken(newRefreshToken);
         Response.Cookies.Append("Authorization", accessToken, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
         Response.Cookies.Append("AuthorizationRefresh", newRefreshToken.Token, new CookieOptions() { HttpOnly = true, SameSite = SameSiteMode.None, Secure = true });
@@ -68,11 +61,9 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("Add")]
-    public async Task<IActionResult> Create(CreateUserRequest entity)
+    public async Task<IActionResult> Create(UserDto request)
     {
-        var dto = _mapper.Map<UserDto>(entity);
-        var responseDto = await _userService.AddAsync(dto);
-        var response = _mapper.Map<UserResponse>(responseDto);
+        var response = await _userService.AddAsync(request);
         return Ok(response);
     }
     
@@ -80,12 +71,10 @@ public class UserController : ControllerBase
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] UserRequest entity)
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] UserDto request)
     {
-        var dto = _mapper.Map<UserDto>(entity);
-        dto.Id = id;
-        var newUserDto = await _userService.UpdateAsync(dto);
-        var response = _mapper.Map<UserResponse>(newUserDto);
+        request.Id = id;
+        var response = await _userService.UpdateAsync(request);
         return Ok(response);
     }
     
@@ -95,8 +84,7 @@ public class UserController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Delete([FromRoute]int id)
     {
-        var responseDto = await _userService.DeleteAsync(id);
-        var response = _mapper.Map<UserDto>(responseDto);
+        var response = await _userService.DeleteAsync(id);
         return Ok(response);
     }
     

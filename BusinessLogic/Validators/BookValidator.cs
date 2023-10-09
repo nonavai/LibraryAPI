@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BusinessLogic.Validators;
 
-public class BookValidator : AbstractValidator<BookDto>
+public class BookValidator : AbstractValidator<BookClearDto>
 {
     public BookValidator()
     {
@@ -13,7 +13,7 @@ public class BookValidator : AbstractValidator<BookDto>
 
         RuleFor(book => book.ISBN13)
             .NotEmpty().WithMessage("ISBN-13 is required.")
-            .Must(BeAValidIsbn);
+            .Must(IsValidIsbn);
 
         RuleFor(book => book.Name)
             .NotEmpty().WithMessage("Name is required.")
@@ -23,7 +23,7 @@ public class BookValidator : AbstractValidator<BookDto>
             .MaximumLength(500).WithMessage("Description cannot exceed 500 characters.");
     }
     
-    private bool BeAValidIsbn(string isbn)
+    private bool IsValidIsbn(string isbn)
     {
         
         isbn = isbn.Replace("-", "").Replace(" ", "");

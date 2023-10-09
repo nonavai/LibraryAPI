@@ -9,33 +9,56 @@
   <component name="ChangeListManager">
     <list default="true" id="dbe0e4b9-494b-485b-ad7e-097a41d00318" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LibraryAPI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LibraryAPI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/ITokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/ITokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Models/Book/BookDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Models/Book/BookDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IAuthorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IAuthorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IBookLoanService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IBookLoanService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IBookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IBookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IGenreService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IGenreService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/TokenService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/AuthorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/AuthorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookLoanService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookLoanService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/GenreService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/GenreService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Validators/AuthorValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Validators/AuthorValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Validators/BookLoanValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Validators/BookLoanValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Validators/BookValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Validators/BookValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/Validators/GenreValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Validators/GenreValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/ref/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/obj/Debug/net7.0/refint/BusinessLogic.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/DbContext/LibraryContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/DbContext/LibraryContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DataLayer/obj/Debug/net7.0/DataLayer.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/AuthorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/AuthorController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/BookController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/BookController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/BookLoanController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/BookLoanController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/GenreController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/GenreController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Mapping/MappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Mapping/MappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/Author/AuthorRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/Book/AddBookRelations.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/Book/BookRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/BookLoan/BookLoanRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/Genre/GenreRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/User/CreateUserRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/User/LogInRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Requests/User/UserRequest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/Author/AuthorBooksResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/Author/AuthorResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/Book/BookClearResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/Book/BookResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/BookLoan/BookLoanResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/Genre/GenreBooksResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/Genre/GenreResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/User/LogInResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/User/UserLoanResponse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryAPI/Responses/User/UserResponse.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/BusinessLogic.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/DataLayer.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/LibraryAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryAPI/bin/Debug/net7.0/appsettings.json" afterDir="false" />
@@ -52,6 +75,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/06e6b5e410594922af54f5731fb38a29b1c8b0/_f2557/ICollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4fd4882263178561924bc475b588915712651e9d3128ea37b3d4c9b1cca5936/OutputProducer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/76df614b0a556e04f1987875dde2a50ae51e754d03b98c83c52020cb8b2/AuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/829d6ac6e62b9bee9ef8e79e827d87d0c31a7c2eefbc354135d9a8f2c4deb/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -149,7 +173,7 @@
       <workItem from="1695714967827" duration="73702000" />
       <workItem from="1696225650397" duration="38387000" />
       <workItem from="1696324374166" duration="2946000" />
-      <workItem from="1696412036022" duration="22239000" />
+      <workItem from="1696412036022" duration="33833000" />
     </task>
     <servers />
   </component>
@@ -176,19 +200,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/LibraryAPI/Controllers/UserController.cs</url>
-          <line>31</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\LibraryAPI\Controllers\UserController.cs" initialLine="33" containingFunctionPresentation="method 'Get'">
-            <startOffsets>
-              <option value="880" />
-            </startOffsets>
-            <endOffsets>
-              <option value="926" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/LibraryAPI/Middleware/ExceptionMiddleware.cs</url>
           <line>28</line>
           <properties documentPath="C:\rider\c#projects\LibraryAPI\LibraryAPI\Middleware\ExceptionMiddleware.cs" initialLine="28" containingFunctionPresentation="method 'HandleExceptionAsync'">
@@ -202,121 +213,69 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/LibraryAPI/Middleware/ExceptionMiddleware.cs</url>
-          <line>18</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\LibraryAPI\Middleware\ExceptionMiddleware.cs" initialLine="18" containingFunctionPresentation="method 'InvokeAsync'">
-            <startOffsets>
-              <option value="366" />
-            </startOffsets>
-            <endOffsets>
-              <option value="391" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DataLayer/Repositories/Implementations/UserRepository.cs</url>
-          <line>34</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\DataLayer\Repositories\Implementations\UserRepository.cs" initialLine="35" containingFunctionPresentation="method 'GetLoansByUser'">
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
-          <line>135</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="137" containingFunctionPresentation="method 'GetLoansByUser'">
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
-          <line>137</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="138" containingFunctionPresentation="method 'GetLoansByUser'">
-            <startOffsets>
-              <option value="4104" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4173" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
-          <line>138</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="139" containingFunctionPresentation="method 'GetLoansByUser'">
-            <startOffsets>
-              <option value="4182" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4193" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
-          <line>124</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="125" containingFunctionPresentation="method 'GetWithLoans'">
-            <startOffsets>
-              <option value="3715" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3767" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/UserService.cs</url>
-          <line>131</line>
-          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\UserService.cs" initialLine="132" containingFunctionPresentation="method 'GetWithLoans'">
-            <startOffsets>
-              <option value="3936" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3947" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs</url>
-          <line>138</line>
+          <line>139</line>
           <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\BookService.cs" initialLine="143" containingFunctionPresentation="method 'AddRelations'">
             <startOffsets>
-              <option value="4265" />
+              <option value="4347" />
             </startOffsets>
             <endOffsets>
-              <option value="4305" />
+              <option value="4387" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs</url>
-          <line>130</line>
+          <line>131</line>
           <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\BookService.cs" initialLine="135" containingFunctionPresentation="method 'AddRelations'">
             <startOffsets>
-              <option value="4047" />
+              <option value="4129" />
             </startOffsets>
             <endOffsets>
-              <option value="4104" />
+              <option value="4186" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs</url>
+          <line>44</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\BookService.cs" initialLine="43" containingFunctionPresentation="method 'GetAllAsync'">
+            <startOffsets>
+              <option value="1433" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1488" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DataLayer/Repositories/Implementations/BookRepository.cs</url>
+          <line>25</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\DataLayer\Repositories\Implementations\BookRepository.cs" initialLine="25" containingFunctionPresentation="method 'GetAllAsync'">
+            <startOffsets>
+              <option value="675" />
+            </startOffsets>
+            <endOffsets>
+              <option value="676" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BusinessLogic/Services/Implemetations/BookService.cs</url>
+          <line>43</line>
+          <properties documentPath="C:\rider\c#projects\LibraryAPI\BusinessLogic\Services\Implemetations\BookService.cs" initialLine="43" containingFunctionPresentation="method 'GetAllAsync'">
+            <startOffsets>
+              <option value="1373" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1424" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

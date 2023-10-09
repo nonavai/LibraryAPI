@@ -4,8 +4,14 @@ using BusinessLogic.Models.User;
 
 namespace BusinessLogic.Services;
 
-public interface IUserService : IBaseService<UserDto>
+public interface IUserService 
 {
+    Task<UserDto> GetByIdAsync(int id);
+    Task<IEnumerable<UserSecureDto>> GetAllAsync();
+    Task<UserDto> AddAsync(UserDto model);
+    Task<UserDto> UpdateAsync(UserDto entity);
+    Task<UserSecureDto> DeleteAsync(int id);
+    Task<bool> ExistsAsync(int id);
     Task<UserDto> GetByEmailAsync(string email);
     Task<bool> IsEmailExist(string email);
     Task<UserLoanDto> GetWithLoans(int id);

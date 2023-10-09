@@ -15,10 +15,10 @@ public class BookService :  IBookService
     private readonly IAuthorRepository _authorRepository;
     private readonly IGenreRepository _genreRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<BookDto> _validator;
+    private readonly IValidator<BookClearDto> _validator;
     
 
-    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookDto> validator, IAuthorRepository authorRepository, IGenreRepository genreRepository)
+    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookClearDto> validator, IAuthorRepository authorRepository, IGenreRepository genreRepository)
     {
         _bookRepository = bookRepository;
         _mapper = mapper;
@@ -41,11 +41,12 @@ public class BookService :  IBookService
 
     public async Task<IEnumerable<BookDto>> GetAllAsync()
     {
-        var dtos = _mapper.Map<IEnumerable<BookDto>>( await _bookRepository.GetAllAsync());
+        var entities = await _bookRepository.GetAllAsync();
+        var dtos = _mapper.Map<IEnumerable<BookDto>>(entities);
         return dtos;
     }
 
-    public async Task<BookDto> AddAsync(BookDto model)
+    public async Task<BookClearDto> AddAsync(BookClearDto model)
     {
         var validationResult = _validator.Validate(model);
         
@@ -55,12 +56,12 @@ public class BookService :  IBookService
         }
         var entity = _mapper.Map<Book>(model);
         entity.IsAvailable = true;
-        var dto = _mapper.Map<BookDto>( await _bookRepository.AddAsync(entity));
+        var dto = _mapper.Map<BookClearDto>( await _bookRepository.AddAsync(entity));
         return dto;
     }
     
 
-    public async Task<BookDto> UpdateAsync(BookDto model)
+    public async Task<BookClearDto> UpdateAsync(BookClearDto model)
     {
         var existingEntity = await _bookRepository.GetByIdAsync(model.Id);
         if (existingEntity == null)
@@ -80,11 +81,11 @@ public class BookService :  IBookService
         existingEntity.Description = model.Description;
 
 
-        var dto = _mapper.Map<BookDto>(await _bookRepository.UpdateAsync(existingEntity));
+        var dto = _mapper.Map<BookClearDto>(await _bookRepository.UpdateAsync(existingEntity));
         return dto;
     }
 
-    public async Task<BookDto> DeleteAsync(int id)
+    public async Task<BookClearDto> DeleteAsync(int id)
     {
         var entity = await _bookRepository.GetByIdAsync(id);
         if (entity == null)
@@ -92,7 +93,7 @@ public class BookService :  IBookService
             throw new NotFoundException("Book not found");
         }
         
-        var dto = _mapper.Map<BookDto>( await _bookRepository.DeleteAsync(id));
+        var dto = _mapper.Map<BookClearDto>( await _bookRepository.DeleteAsync(id));
         return dto;
     }
 

@@ -16,8 +16,6 @@ using LibraryAPI.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using FluentValidation.AspNetCore;
 using LibraryAPI.Extensions;
-using LibraryAPI.Mapping;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -71,7 +69,7 @@ ConfigureServices(builder.Services);
 var app = builder.Build();
 
 
-Configure(app);
+//Configure(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -96,12 +94,6 @@ void Configure(WebApplication app)
 }
 void ConfigureServices(IServiceCollection serviceCollection)
 {
-    serviceCollection.AddScoped<IValidator<UserDto>, UserValidator>();
-    serviceCollection.AddScoped<IValidator<BookDto>, BookValidator>();
-    serviceCollection.AddScoped<IValidator<AuthorDto>, AuthorValidator>();
-    serviceCollection.AddScoped<IValidator<GenreDto>, GenreValidator>();
-    
-
     serviceCollection.AddScoped<IUserRepository, UserRepository>();
     serviceCollection.AddScoped<IUserService, UserService>();
 
@@ -121,12 +113,12 @@ void ConfigureServices(IServiceCollection serviceCollection)
     serviceCollection.AddScoped<ITokenService, TokenService>();
     
     serviceCollection.AddAutoMapper(typeof(MappingProfile));
-    serviceCollection.AddAutoMapper(typeof(MappingProfileApi));
+    //serviceCollection.AddAutoMapper(typeof(MappingProfileApi));
     
     serviceCollection.AddScoped<IValidator<UserDto>, UserValidator>();
-    serviceCollection.AddScoped<IValidator<BookDto>, BookValidator>();
-    serviceCollection.AddScoped<IValidator<AuthorDto>, AuthorValidator>();
-    serviceCollection.AddScoped<IValidator<GenreDto>, GenreValidator>();
-    serviceCollection.AddScoped<IValidator<BookLoanDto>, BookLoanValidator>();
+    serviceCollection.AddScoped<IValidator<BookClearDto>, BookValidator>();
+    serviceCollection.AddScoped<IValidator<AuthorClearDto>, AuthorValidator>();
+    serviceCollection.AddScoped<IValidator<GenreClearDto>, GenreValidator>();
+    serviceCollection.AddScoped<IValidator<BookLoanClearDto>, BookLoanValidator>();
     
 }

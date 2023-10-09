@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BusinessLogic.Validators;
 
-public class BookLoanValidator : AbstractValidator<BookLoanDto>
+public class BookLoanValidator : AbstractValidator<BookLoanClearDto>
 {
     public BookLoanValidator()
     {

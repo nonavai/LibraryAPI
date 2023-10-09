@@ -1,9 +1,5 @@
-﻿using AutoMapper;
-using BusinessLogic.Models.Book;
+﻿using BusinessLogic.Models.Book;
 using BusinessLogic.Services;
-using LibraryAPI.Requests.Book;
-using LibraryAPI.Responses.Book;
-using LibraryAPI.Responses.BookLoan;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +10,10 @@ namespace LibraryAPI.Controllers;
 public class BookController : ControllerBase
 {
     private readonly IBookService _bookService;
-    private readonly IMapper _mapper;
 
 
-    public BookController(IMapper mapper, IBookService bookService)
+    public BookController( IBookService bookService)
     {
-        _mapper = mapper;
         _bookService = bookService;
     }
 
@@ -27,8 +21,7 @@ public class BookController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Get([FromRoute] int id)
     {
-        var dto = await _bookService.GetByIdAsync(id);
-        var response = _mapper.Map<BookResponse>(dto);
+        var response = await _bookService.GetByIdAsync(id);
         return Ok(response);
     }
     
@@ -36,8 +29,7 @@ public class BookController : ControllerBase
     [Route("All")]
     public async Task<IActionResult> GetAll()
     {
-        var dto = await _bookService.GetAllAsync();
-        var response = _mapper.Map<IEnumerable<BookResponse>>(dto);
+        var response = await _bookService.GetAllAsync();
         return Ok(response);
     }
     
@@ -45,31 +37,25 @@ public class BookController : ControllerBase
     [Route("{id:int}/Loan")]
     public async Task<IActionResult> GetCurrentLoan([FromRoute] int id)
     {
-        var dto = await _bookService.GetNewLoan(id);
-        var response = _mapper.Map<BookLoanResponse>(dto);
+        var response = await _bookService.GetNewLoan(id);
         return Ok(response);
     }
 
     [HttpPost]
     [Route("Add")]
-    public async Task<IActionResult> Create(BookRequest entity)
+    public async Task<IActionResult> Create(BookClearDto request)
     {
-        var dto = _mapper.Map<BookDto>(entity);
-        var responseDto = await _bookService.AddAsync(dto);
-        var response = _mapper.Map<BookResponse>(responseDto);
+        var response = await _bookService.AddAsync(request);
         return Ok(response);
     }
-
-    //[ValidateToken] //to make it work - comment that attribute
+    
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] BookRequest entity)
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] BookClearDto request)
     {
-        var dto = _mapper.Map<BookDto>(entity);
-        dto.Id = id;
-        var newUserDto = await _bookService.UpdateAsync(dto);
-        var response = _mapper.Map<BookResponse>(newUserDto);
+        request.Id = id;
+        var response = await _bookService.UpdateAsync(request);
         return Ok(response);
     }
 
@@ -80,19 +66,16 @@ public class BookController : ControllerBase
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var responseDto = await _bookService.DeleteAsync(id);
-        var response = _mapper.Map<BookResponse>(responseDto);
-        return Ok(response);
+        return Ok(responseDto);
     }
     
     [Authorize]
     [HttpPost]
     [Route("{id:int}/AddRelations")]
-    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AddBookRelations request)
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] RelationsDto request)
     {
-        var dto = _mapper.Map<RelationsDto>(request);
-        dto.BookId = id;
-        var responseDto = await _bookService.AddRelations(dto);
-        var response = _mapper.Map<BookResponse>(responseDto);
+        request.BookId = id;
+        var response = await _bookService.AddRelations(request);
         return Ok(response);
     }
 }

@@ -34,9 +34,9 @@ public class UserService : IUserService
         return dto;
     }
 
-    public async Task<IEnumerable<UserDto>> GetAllAsync()
+    public async Task<IEnumerable<UserSecureDto>> GetAllAsync()
     {
-        var userDto = _mapper.Map<IEnumerable<UserDto>>( await _userRepository.GetAllAsync());
+        var userDto = _mapper.Map<IEnumerable<UserSecureDto>>( await _userRepository.GetAllAsync());
         return userDto;
     }
 
@@ -86,7 +86,7 @@ public class UserService : IUserService
         return dto;
     }
 
-    public async Task<UserDto> DeleteAsync(int id)
+    public async Task<UserSecureDto> DeleteAsync(int id)
     {
         var entity = await _userRepository.GetByIdAsync(id);
         if (entity == null)
@@ -94,7 +94,7 @@ public class UserService : IUserService
             throw new NotFoundException("User not found");
         }
         
-        var dto = _mapper.Map<UserDto>( await _userRepository.DeleteAsync(id));
+        var dto = _mapper.Map<UserSecureDto>( await _userRepository.DeleteAsync(id));
         return dto;
     }
 
