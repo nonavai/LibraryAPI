@@ -54,8 +54,7 @@ public class GenreController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] GenreClearDto request)
     {
-        request.Id = id;
-        var response = await _genreService.UpdateAsync(request);
+        var response = await _genreService.UpdateAsync(id, request);
         return Ok(response);
     }
     

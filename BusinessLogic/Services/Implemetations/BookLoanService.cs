@@ -13,13 +13,11 @@ public class BookLoanService : IBookLoanService
     private readonly IBookLoanRepository _bookLoanRepository;
     private readonly IBookService _bookService;
     private readonly IMapper _mapper;
-    private readonly IValidator<BookLoanClearDto> _validator;
-    
 
-    public BookLoanService( IMapper mapper, IValidator<BookLoanClearDto> validator, IBookLoanRepository bookLoanRepository, IBookService bookService)
+
+    public BookLoanService( IMapper mapper, IBookLoanRepository bookLoanRepository, IBookService bookService)
     {
         _mapper = mapper;
-        _validator = validator;
         _bookLoanRepository = bookLoanRepository;
         _bookService = bookService;
     }
@@ -44,12 +42,7 @@ public class BookLoanService : IBookLoanService
 
     public async Task<BookLoanDto> AddAsync(BookLoanClearDto model)
     {
-        var validationResult = _validator.Validate(model);
         
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
         var entity = _mapper.Map<BookLoan>(model);
         await _bookService.SetAvailable(model.BookId, false);
         var dto = _mapper.Map<BookLoanDto>( await _bookLoanRepository.AddAsync(entity));

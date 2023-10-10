@@ -54,8 +54,7 @@ public class BookController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] BookClearDto request)
     {
-        request.Id = id;
-        var response = await _bookService.UpdateAsync(request);
+        var response = await _bookService.UpdateAsync(id, request);
         return Ok(response);
     }
 

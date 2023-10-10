@@ -14,13 +14,11 @@ public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<UserDto> _validator;
 
-    public UserService(IUserRepository userRepository, IMapper mapper, IValidator<UserDto> validator)
+    public UserService(IUserRepository userRepository, IMapper mapper)
     {
         _userRepository = userRepository;
         _mapper = mapper;
-        _validator = validator;
     }
 
     public async Task<UserDto> GetByIdAsync(int id)
@@ -40,19 +38,13 @@ public class UserService : IUserService
         return userDto;
     }
 
-    public async Task<UserDto> AddAsync(UserDto model)
+    public async Task<UserDto> AddAsync(UserClearDto model)
     {
         if (await IsEmailExist(model.Email))
         {
             throw new BadAuthorizeException("User already exist");
         }
-        var validationResult = _validator.Validate(model);
 
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
-        
         // CREATING USER ROLES
         var entity = _mapper.Map<User>(model);
         var compitedUser = await _userRepository.AddAsync(entity);
@@ -60,27 +52,16 @@ public class UserService : IUserService
         return dto;
     }
 
-    public async Task<UserDto> UpdateAsync(UserDto model)
+    public async Task<UserDto> UpdateAsync(int id, UserClearDto model)
     {
-        var existingEntity = await _userRepository.GetByIdAsync(model.Id);
+        var existingEntity = await _userRepository.GetByIdAsync(id);
         if (existingEntity == null)
         {
             throw new NotFoundException("Book not found");
         }
         //check on existing
-        var validationResult = _validator.Validate(model);
-        
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
 
-        existingEntity.FirstName = model.FirstName;
-        existingEntity.LastName = model.LastName;
-        existingEntity.Password = model.Password;
-        existingEntity.PhoneNumber = model.PhoneNumber;
-        existingEntity.Description = model.Description;
-
+        _mapper.Map(model, existingEntity);
 
         var dto = _mapper.Map<UserDto>(await _userRepository.UpdateAsync(existingEntity));
         return dto;

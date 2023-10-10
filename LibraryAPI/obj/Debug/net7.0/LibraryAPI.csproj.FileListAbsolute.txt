@@ -88,3 +88,4 @@ C:\rider\c#projects\LibraryAPI\LibraryAPI\bin\Debug\net7.0\Microsoft.EntityFrame
 C:\rider\c#projects\LibraryAPI\LibraryAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\rider\c#projects\LibraryAPI\LibraryAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\rider\c#projects\LibraryAPI\LibraryAPI\bin\Debug\net7.0\System.CodeDom.dll
+C:\rider\c#projects\LibraryAPI\LibraryAPI\bin\Debug\net7.0\Newtonsoft.Json.dll

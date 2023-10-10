@@ -5,13 +5,13 @@ namespace BusinessLogic.Services;
 
 public interface IBookService
 {
-    Task<BookDto> GetByIdAsync(int id);
-    Task<IEnumerable<BookDto>> GetAllAsync();
-    Task<BookClearDto> AddAsync(BookClearDto model);
-    Task<BookClearDto> UpdateAsync(BookClearDto entity);
-    Task<BookClearDto> DeleteAsync(int id);
+    Task<BookFullDto> GetByIdAsync(int id);
+    Task<IEnumerable<BookFullDto>> GetAllAsync();
+    Task<BookDto> AddAsync(BookClearDto model);
+    Task<BookDto> UpdateAsync(int id, BookClearDto entity);
+    Task<BookDto> DeleteAsync(int id);
     Task<bool> ExistsAsync(int id);
     Task SetAvailable(int id, bool activity = true);
     Task<BookLoanDto> GetNewLoan(int bookId);
-    Task<BookDto> AddRelations( RelationsDto dto);
+    Task<BookFullDto> AddRelations( RelationsDto dto);
 }

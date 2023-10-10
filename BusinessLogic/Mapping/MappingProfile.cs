@@ -14,16 +14,20 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
+        CreateMap<User, UserClearDto>().ReverseMap();
+        CreateMap<Author, AuthorClearDto>().ReverseMap();
+        CreateMap<Genre, GenreClearDto>().ReverseMap();
+        CreateMap<Book, BookClearDto>().ReverseMap();
         CreateMap<BookLoan, BookLoanDto>().ReverseMap();
         CreateMap<BookLoan, BookLoanClearDto>().ReverseMap();
         CreateMap<RefreshToken, RefreshTokenDto>().ReverseMap();
-        CreateMap<Book, BookDto>()
-            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(c => new GenreClearDto
+        CreateMap<Book, BookFullDto>()
+            .ForMember(dest => dest.Genres, opt => opt.MapFrom(src => src.Genres.Select(c => new GenreDto
             {
                 Id = c.Id,
                 Name = c.Name
             })))
-            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors.Select(c => new AuthorClearDto
+            .ForMember(dest => dest.Authors, opt => opt.MapFrom(src => src.Authors.Select(c => new AuthorDto
             {
                 Id = c.Id,
                 Name = c.Name,
@@ -42,9 +46,9 @@ public class MappingProfile : Profile
                 LoanDate = c.LoanDate,
                 ReturnDate = c.ReturnDate
             }))).ReverseMap();
-        CreateMap<Author, AuthorClearDto>();
-        CreateMap<Author, AuthorDto>()
-            .ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(c => new BookClearDto
+        CreateMap<Author, AuthorDto>();
+        CreateMap<Author, AuthorBookDto>()
+            .ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(c => new BookDto
             {
                 Id = c.Id,
                 Title = c.Title,
@@ -53,9 +57,9 @@ public class MappingProfile : Profile
                 Description = c.Description,
                 IsAvailable = c.IsAvailable
             }))).ReverseMap();
-        CreateMap<Genre, GenreClearDto>();
-        CreateMap<Genre, GenreDto>()
-            .ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(c => new BookClearDto
+        CreateMap<Genre, GenreDto>();
+        CreateMap<Genre, GenreBookDto>()
+            .ForMember(dest => dest.Books, opt => opt.MapFrom(src => src.Books.Select(c => new BookDto
             {
                 Id = c.Id,
                 Title = c.Title,

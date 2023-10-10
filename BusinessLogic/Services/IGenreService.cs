@@ -5,12 +5,12 @@ namespace BusinessLogic.Services;
 
 public interface IGenreService 
 {
-   Task<GenreDto> GetByIdAsync(int id);
-   Task<IEnumerable<GenreClearDto>> GetAllAsync();
-   Task<GenreClearDto> AddAsync(GenreClearDto model);
-   Task<GenreClearDto> UpdateAsync(GenreClearDto entity);
-   Task<GenreClearDto> DeleteAsync(int id);
+   Task<GenreBookDto> GetByIdAsync(int id);
+   Task<IEnumerable<GenreDto>> GetAllAsync();
+   Task<GenreDto> AddAsync(GenreClearDto model);
+   Task<GenreDto> UpdateAsync(int id, GenreClearDto entity);
+   Task<GenreDto> DeleteAsync(int id);
    Task<bool> ExistsAsync(int id);
-   Task<IEnumerable<BookDto>> GetBooksByGenre(int id);
+   Task<IEnumerable<BookFullDto>> GetBooksByGenre(int id);
 
 }

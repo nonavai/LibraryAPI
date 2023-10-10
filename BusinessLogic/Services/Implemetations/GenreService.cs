@@ -14,69 +14,56 @@ public class GenreService: IGenreService
 {
     private readonly IGenreRepository _genreRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<GenreClearDto> _validator;
-    
 
-    public GenreService( IMapper mapper, IValidator<GenreClearDto> validator, IGenreRepository genreRepository)
+
+    public GenreService( IMapper mapper, IGenreRepository genreRepository)
     {
         _mapper = mapper;
-        _validator = validator;
         _genreRepository = genreRepository;
     }
 
 
-    public async Task<GenreDto> GetByIdAsync(int id)
+    public async Task<GenreBookDto> GetByIdAsync(int id)
     {
         var entity = await _genreRepository.GetByIdAsync(id);
         if (entity == null)
         {
             throw new NotFoundException("Not found");
         }
-        var dto = _mapper.Map<GenreDto>(entity);
+        var dto = _mapper.Map<GenreBookDto>(entity);
         return dto;
     }
 
-    public async Task<IEnumerable<GenreClearDto>> GetAllAsync()
+    public async Task<IEnumerable<GenreDto>> GetAllAsync()
     {
-        var dtos = _mapper.Map<IEnumerable<GenreClearDto>>( await _genreRepository.GetAllAsync());
+        var dtos = _mapper.Map<IEnumerable<GenreDto>>( await _genreRepository.GetAllAsync());
         return dtos;
     }
 
-    public async Task<GenreClearDto> AddAsync(GenreClearDto model)
+    public async Task<GenreDto> AddAsync(GenreClearDto model)
     {
-        var validationResult = _validator.Validate(model);
-        
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
         var entity = _mapper.Map<Genre>(model);
-        var dto = _mapper.Map<GenreClearDto>( await _genreRepository.AddAsync(entity));
+        var dto = _mapper.Map<GenreDto>( await _genreRepository.AddAsync(entity));
         return dto;
     }
     
 
-    public async Task<GenreClearDto> UpdateAsync(GenreClearDto model)
+    public async Task<GenreDto> UpdateAsync(int id, GenreClearDto model)
     {
-        var existingEntity = await _genreRepository.GetByIdAsync(model.Id);
+        var existingEntity = await _genreRepository.GetByIdAsync(id);
         if (existingEntity == null)
         {
             throw new NotFoundException("Genre not found");
         }
         //check on existing
-        var validationResult = _validator.Validate(model);
         
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
-        existingEntity.Name = model.Name;
+        _mapper.Map(model, existingEntity);
 
-        var dto = _mapper.Map<GenreClearDto>(await _genreRepository.UpdateAsync(existingEntity));
+        var dto = _mapper.Map<GenreDto>(await _genreRepository.UpdateAsync(existingEntity));
         return dto;
     }
 
-    public async Task<GenreClearDto> DeleteAsync(int id)
+    public async Task<GenreDto> DeleteAsync(int id)
     {
         var entity = await _genreRepository.GetByIdAsync(id);
         if (entity == null)
@@ -84,7 +71,7 @@ public class GenreService: IGenreService
             throw new NotFoundException("Genre not found");
         }
         
-        var dto = _mapper.Map<GenreClearDto>( await _genreRepository.DeleteAsync(id));
+        var dto = _mapper.Map<GenreDto>( await _genreRepository.DeleteAsync(id));
         return dto;
     }
 
@@ -93,9 +80,9 @@ public class GenreService: IGenreService
         return await _genreRepository.ExistsAsync(id);
     }
 
-    public async Task<IEnumerable<BookDto>> GetBooksByGenre(int id)
+    public async Task<IEnumerable<BookFullDto>> GetBooksByGenre(int id)
     {
-        var dtos = _mapper.Map<IEnumerable<BookDto>>( await _genreRepository.GetBooksByGenre(id));
+        var dtos = _mapper.Map<IEnumerable<BookFullDto>>( await _genreRepository.GetBooksByGenre(id));
         return dtos;
     }
 }

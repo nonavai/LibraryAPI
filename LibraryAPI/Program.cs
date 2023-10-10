@@ -1,10 +1,5 @@
 using System.Text;
 using BusinessLogic.Mapping;
-using BusinessLogic.Models.Author;
-using BusinessLogic.Models.Book;
-using BusinessLogic.Models.BookLoan;
-using BusinessLogic.Models.Genre;
-using BusinessLogic.Models.User;
 using BusinessLogic.Services;
 using BusinessLogic.Services.Implemetations;
 using BusinessLogic.Validators;
@@ -54,9 +49,9 @@ builder.Services.AddAuthentication(x =>
 
 
 // Add services to the container.
-
+builder.Services.AddValidatorsFromAssemblyContaining<UserValidator>(); 
+builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddControllers();
-builder.Services.AddControllers().AddFluentValidation();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -69,7 +64,7 @@ ConfigureServices(builder.Services);
 var app = builder.Build();
 
 
-//Configure(app);
+Configure(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -113,12 +108,5 @@ void ConfigureServices(IServiceCollection serviceCollection)
     serviceCollection.AddScoped<ITokenService, TokenService>();
     
     serviceCollection.AddAutoMapper(typeof(MappingProfile));
-    //serviceCollection.AddAutoMapper(typeof(MappingProfileApi));
-    
-    serviceCollection.AddScoped<IValidator<UserDto>, UserValidator>();
-    serviceCollection.AddScoped<IValidator<BookClearDto>, BookValidator>();
-    serviceCollection.AddScoped<IValidator<AuthorClearDto>, AuthorValidator>();
-    serviceCollection.AddScoped<IValidator<GenreClearDto>, GenreValidator>();
-    serviceCollection.AddScoped<IValidator<BookLoanClearDto>, BookLoanValidator>();
-    
+
 }

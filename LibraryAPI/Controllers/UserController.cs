@@ -61,7 +61,7 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("Add")]
-    public async Task<IActionResult> Create(UserDto request)
+    public async Task<IActionResult> Create(UserClearDto request)
     {
         var response = await _userService.AddAsync(request);
         return Ok(response);
@@ -71,10 +71,9 @@ public class UserController : ControllerBase
     [Authorize]
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] UserDto request)
+    public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] UserClearDto request)
     {
-        request.Id = id;
-        var response = await _userService.UpdateAsync(request);
+        var response = await _userService.UpdateAsync(id, request);
         return Ok(response);
     }
     

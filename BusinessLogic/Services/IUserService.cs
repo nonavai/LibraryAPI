@@ -8,8 +8,8 @@ public interface IUserService
 {
     Task<UserDto> GetByIdAsync(int id);
     Task<IEnumerable<UserSecureDto>> GetAllAsync();
-    Task<UserDto> AddAsync(UserDto model);
-    Task<UserDto> UpdateAsync(UserDto entity);
+    Task<UserDto> AddAsync(UserClearDto model);
+    Task<UserDto> UpdateAsync(int id, UserClearDto entity);
     Task<UserSecureDto> DeleteAsync(int id);
     Task<bool> ExistsAsync(int id);
     Task<UserDto> GetByEmailAsync(string email);

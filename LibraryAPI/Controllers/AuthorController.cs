@@ -54,8 +54,7 @@ public class AuthorController : ControllerBase
     [Route("{id:int}")]
     public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] AuthorClearDto request)
     {
-        request.Id = id;
-        var response = await _authorService.UpdateAsync(request);
+        var response = await _authorService.UpdateAsync(id, request);
         return Ok(response);
     }
     

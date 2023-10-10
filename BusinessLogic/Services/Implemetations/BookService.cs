@@ -15,77 +15,60 @@ public class BookService :  IBookService
     private readonly IAuthorRepository _authorRepository;
     private readonly IGenreRepository _genreRepository;
     private readonly IMapper _mapper;
-    private readonly IValidator<BookClearDto> _validator;
-    
 
-    public BookService(IBookRepository bookRepository, IMapper mapper, IValidator<BookClearDto> validator, IAuthorRepository authorRepository, IGenreRepository genreRepository)
+
+    public BookService(IBookRepository bookRepository, IMapper mapper, IAuthorRepository authorRepository, IGenreRepository genreRepository)
     {
         _bookRepository = bookRepository;
         _mapper = mapper;
-        _validator = validator;
         _authorRepository = authorRepository;
         _genreRepository = genreRepository;
     }
 
 
-    public async Task<BookDto> GetByIdAsync(int id)
+    public async Task<BookFullDto> GetByIdAsync(int id)
     {
         var entity = await _bookRepository.GetByIdAsync(id);
         if (entity == null)
         {
             throw new NotFoundException("Not found");
         }
-        var dto = _mapper.Map<BookDto>(entity);
+        var dto = _mapper.Map<BookFullDto>(entity);
         return dto;
     }
 
-    public async Task<IEnumerable<BookDto>> GetAllAsync()
+    public async Task<IEnumerable<BookFullDto>> GetAllAsync()
     {
         var entities = await _bookRepository.GetAllAsync();
-        var dtos = _mapper.Map<IEnumerable<BookDto>>(entities);
+        var dtos = _mapper.Map<IEnumerable<BookFullDto>>(entities);
         return dtos;
     }
 
-    public async Task<BookClearDto> AddAsync(BookClearDto model)
+    public async Task<BookDto> AddAsync(BookClearDto model)
     {
-        var validationResult = _validator.Validate(model);
-        
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
         var entity = _mapper.Map<Book>(model);
         entity.IsAvailable = true;
-        var dto = _mapper.Map<BookClearDto>( await _bookRepository.AddAsync(entity));
+        var dto = _mapper.Map<BookDto>( await _bookRepository.AddAsync(entity));
         return dto;
     }
     
 
-    public async Task<BookClearDto> UpdateAsync(BookClearDto model)
+    public async Task<BookDto> UpdateAsync(int id, BookClearDto model)
     {
-        var existingEntity = await _bookRepository.GetByIdAsync(model.Id);
+        var existingEntity = await _bookRepository.GetByIdAsync(id);
         if (existingEntity == null)
         {
             throw new NotFoundException("Book not found");
         }
         //check on existing
-        var validationResult = _validator.Validate(model);
+
+        _mapper.Map(model, existingEntity);
         
-        if (!validationResult.IsValid)
-        {
-            throw new ValidationException(validationResult.Errors.ToString());
-        }
-
-        existingEntity.Name = model.Name;
-        existingEntity.Title = model.Title;
-        existingEntity.Description = model.Description;
-
-
-        var dto = _mapper.Map<BookClearDto>(await _bookRepository.UpdateAsync(existingEntity));
+        var dto = _mapper.Map<BookDto>(await _bookRepository.UpdateAsync(existingEntity));
         return dto;
     }
 
-    public async Task<BookClearDto> DeleteAsync(int id)
+    public async Task<BookDto> DeleteAsync(int id)
     {
         var entity = await _bookRepository.GetByIdAsync(id);
         if (entity == null)
@@ -93,7 +76,7 @@ public class BookService :  IBookService
             throw new NotFoundException("Book not found");
         }
         
-        var dto = _mapper.Map<BookClearDto>( await _bookRepository.DeleteAsync(id));
+        var dto = _mapper.Map<BookDto>( await _bookRepository.DeleteAsync(id));
         return dto;
     }
 
@@ -123,7 +106,7 @@ public class BookService :  IBookService
         return dto;
     }
 
-    public async Task<BookDto> AddRelations(RelationsDto dto)
+    public async Task<BookFullDto> AddRelations(RelationsDto dto)
     {
         var book = await _bookRepository.GetByIdAsync(dto.BookId);
         if (book == null) throw new NotFoundException();
@@ -138,7 +121,7 @@ public class BookService :  IBookService
         }
 
         await _bookRepository.UpdateAsync(book);
-        var bookDto = _mapper.Map<BookDto>(await _bookRepository.GetByIdAsync(dto.BookId));
+        var bookDto = _mapper.Map<BookFullDto>(await _bookRepository.GetByIdAsync(dto.BookId));
         return bookDto;
     }
 }
